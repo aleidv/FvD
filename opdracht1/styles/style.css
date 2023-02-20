@@ -59,13 +59,24 @@ button:not[disabled], summary {
 
 
 /* JOUW STYLING */
+
 body {
-  font-family: eenfont, sans-serif;
-  font-size: 50px;
-  color: var(--color-text-red);
-  background-color: var(--color-background);
-  text-align: center;
+	background-color: var(--color-background);
+
+	height:100dvh;
+	display: grid;
+	place-content: center;
+	/* Bron: https://codepen.io/shooft/pen/gOdbPKV */
+	/* 100dvh adapts itself to be either the large or small viewport size. */
 }
+
+h1 {
+	font-family: eenfont, sans-serif;
+	font-size: 5em;
+	color: var(--color-text-red);
+}
+
+
 
 @keyframes beat {
 	/* jouw code hier */
@@ -90,7 +101,7 @@ body {
 	70%, 100% {
 	  transform:scale(1);
 	}
-  }
+}
 
 h1 {
 	animation: var(--beat-animation);
