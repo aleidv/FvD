@@ -45,8 +45,11 @@ button:not[disabled], summary {
 
 	/* animaties */
 	--beat-animation: beat 1.5s ease;
-	--pulse-animation: pulse 4s ease-out infinite;
+	--my-pulse-animation: pulseAn 4s ease-out infinite;
 	--color-animation: colorChange 8s linear infinite;
+
+	--pulse-animation: pulse 2s ease 0s infinite normal forwards;
+	/* Bron: https://webcode.tools/generators/css/keyframe-animation */
 }
 
 
@@ -77,35 +80,74 @@ h1 {
 	font-family: eenfont, sans-serif;
 	font-size: 5em;
 	color: var(--color-text-red);
-	/* text-shadow: #474747 1px 0 10px; */
-	animation: var(--color-animation);
-}
-
-span {
-	opacity: 0.8;
+	text-shadow: 0 1px 1px rgba(0,0,0,0.11), 
+				 0 2px 2px rgba(0,0,0,0.11), 
+				 0 4px 4px rgba(0,0,0,0.11), 
+				 0 6px 8px rgba(0,0,0,0.11),
+				 0 8px 16px rgba(0,0,0,0.11);
+	/* Bron: https://tobiasahlin.com/blog/layered-smooth-box-shadows/ */
+	/* schaduw lagen, scherpte, afstand, spreiding, kleur & alfa (transparant) */
 	animation: var(--pulse-animation);
 }
 
+/* span {
+	opacity: 1;
+} */
 
-@keyframes colorChange {
+
+@keyframes pulse {
+	0% {
+		animation-timing-function: ease-out;
+		transform: scale(1);
+		transform-origin: center center;
+	}
+
+	10% {
+		animation-timing-function: ease-in;
+		transform: scale(0.91);
+	}
+
+	17% {
+		animation-timing-function: ease-out;
+		transform: scale(0.98);
+	}
+
+	33% {
+		animation-timing-function: ease-in;
+		transform: scale(0.87);
+	}
+
+	45% {
+		animation-timing-function: ease-out;
+		transform: scale(1);
+	}
+}
+/* Bron: https://webcode.tools/generators/css/keyframe-animation */
+
+
+
+
+
+
+
+
+
+
+
+/* @keyframes colorChange {
 	100% {
 		filter: hue-rotate(360deg);
 	}
-}
+} */
 
-@keyframes pulse {
+/* @keyframes pulseAn {
 	100% {
 		opacity: 0;
 	}
-}
+} */
 
-
-@keyframes beat {
-	/* jouw code hier */
+/* @keyframes beat {
 	0%, 20% {
-	  /* tot 30% geen animatie */ */
-	  /* voor de pauze tussen de hartslagen */
-	  /* /* transform:scale(1); */
 	}
 	30%, 40% {
 	  transform:scale(1.3);
@@ -114,7 +156,7 @@ span {
 	  transform:scale(1);
 	}
 	60% {
-	  transform:scale(0.8em);
+	  transform:scale(0.8);
 	  opacity: 0.5;
 	}
 	65% {
@@ -123,4 +165,4 @@ span {
 	70%, 100% {
 	  transform:scale(1);
 	}
-}
+} */
