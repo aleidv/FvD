@@ -1,35 +1,23 @@
 /* CSS Document */
-
-
-/* FONTS */
-/* @font-face {
-	font-family: 'eenfont';
-	src: url('../fonts/eenfont.woff2') format('woff2'),
-			 url('../fonts/eenfont.woff') format('woff');
-	font-weight: normal;
-	font-style: normal;
-} */ 
-
-/* @import url('https://fonts.googleapis.com/css2?family=Catamaran:wght@100;400;500;600;800;900&family=Varela+Round&display=swap');
-font-family: 'Varela Round', sans-serif; */
-/* ^ bron: https://fonts.google.com/specimen/Varela+Round */
-
 @font-face {
-    font-family: 'eenfont';
-    src: url('../fonts/Abeatbykai-YPXy.otf');
+    font-family: 'abeatbykairegular';
+    src: url('../fonts/abeatbykai-ypxy-webfont.woff2') format('woff2'),
+         url('../fonts/abeatbykai-ypxy-webfont.woff') format('woff');
+	/* ^ Bron: https://www.fontsquirrel.com/tools/webfont-generator
+		 https://www.fontspace.com/abeatbykai-font-f11363 */
     font-weight: normal;
-	font-style: normal;
+    font-style: normal;
+	font-display: fallback;
+	/* ... */
 }
-/* ^ bron: https://www.fontspace.com/abeatbykai-font-f11363 */
-
 
 
 /* CSS REMEDY */
 *, *::after, *::before {
-  box-sizing:border-box;  
+  box-sizing: border-box;  
 }
 
-button:not[disabled], summary {
+button:not([disabled]), summary {
 	cursor: pointer;
 }
 
@@ -40,15 +28,18 @@ button:not[disabled], summary {
 	--color-background:#eee;
 	--color-text-red: #e01f3d;
 	--color-text-white: #ffffff;
-	/* --shadow-color: #474747; */
 	--gradient-background: repeating-linear-gradient(-45deg, #302f2f, #302f2f 6px, #2a2929 0, #2a2929 12px);
+	--gradient2-background: linear-gradient(
+		-45deg, 
+		transparant,
+		red,
+		transparant
+	);
+
 
 	/* animaties */
-	--beat-animation: beat 1.5s ease;
-	--my-pulse-animation: pulseAn 4s ease-out infinite;
+	--pulse-animation: pulse 2s ease 2s infinite normal forwards;
 	--color-animation: colorChange 8s linear infinite;
-
-	--pulse-animation: pulse 2s ease 0s infinite normal forwards;
 	/* Bron: https://webcode.tools/generators/css/keyframe-animation */
 }
 
@@ -69,30 +60,45 @@ button:not[disabled], summary {
 body {
 	background-color: var(--color-background);
 
-	height:100dvh;
+	height:100vh;
 	display: grid;
 	place-content: center;
 	/* Bron: https://codepen.io/shooft/pen/gOdbPKV */
-	/* 100dvh adapts itself to be either the large or small viewport size. */
 }
 
 h1 {
-	font-family: eenfont, sans-serif;
-	font-size: 5em;
+	font-family: abeatbykairegular, sans-serif;
+	font-size: min(15vw, 5em);
+	/* de size is 15vw tot dat het font 5em heeft bereikt */
 	color: var(--color-text-red);
-	text-shadow: 0 1px 1px rgba(0,0,0,0.11), 
-				 0 2px 2px rgba(0,0,0,0.11), 
-				 0 4px 4px rgba(0,0,0,0.11), 
-				 0 6px 8px rgba(0,0,0,0.11),
-				 0 8px 16px rgba(0,0,0,0.11);
+	text-shadow: 0 0.01em 1px rgba(0,0,0,0.10), 
+				 0 0.02em 2px rgba(0,0,0,0.10), 
+				 0 0.04em 4px rgba(0,0,0,0.10), 
+				 0 0.08em 8px rgba(0,0,0,0.10),
+				 0 0.16em 16px rgba(0,0,0,0.10);
 	/* Bron: https://tobiasahlin.com/blog/layered-smooth-box-shadows/ */
 	/* schaduw lagen, scherpte, afstand, spreiding, kleur & alfa (transparant) */
-	animation: var(--pulse-animation);
+
+	position: relative;
+
+	/* animation: var(--pulse-animation); */
 }
 
-/* span {
+span {
 	opacity: 1;
-} */
+}
+
+span:last-child:after {
+	content:"";
+	display: block;
+	height: 10vh;
+	width: 100vw;
+	position: absolute;
+	bottom: -2em;
+	left: 0;
+	background: linear-gradient(45deg, transparent, transparent 49%, red 49%, transparent 51%);
+	background: linear-gradient(-45deg, transparent, transparent 49%, red 49%, transparent 51%);
+}
 
 
 @keyframes pulse {
@@ -102,34 +108,42 @@ h1 {
 		transform-origin: center center;
 	}
 
-	10% {
+	5% {
 		animation-timing-function: ease-in;
 		transform: scale(0.91);
 	}
 
-	17% {
+	16% {
 		animation-timing-function: ease-out;
 		transform: scale(0.98);
 	}
 
-	33% {
+	40% {
+		animation-timing-function: ease-out;
+		transform: scale(1);
+	}
+
+	45% {
+		animation-timing-function: ease-in;
+		transform: scale(0.91);
+	}
+
+	52% {
+		animation-timing-function: ease-out;
+		transform: scale(0.98);
+	}
+
+	68% {
 		animation-timing-function: ease-in;
 		transform: scale(0.87);
 	}
 
-	45% {
+	75% {
 		animation-timing-function: ease-out;
-		transform: scale(1);
+		transform: scale(1.1);
 	}
+
 }
-/* Bron: https://webcode.tools/generators/css/keyframe-animation */
-
-
-
-
-
-
-
 
 
 
@@ -143,26 +157,5 @@ h1 {
 /* @keyframes pulseAn {
 	100% {
 		opacity: 0;
-	}
-} */
-
-/* @keyframes beat {
-	0%, 20% {
-	}
-	30%, 40% {
-	  transform:scale(1.3);
-	}
-	43% {
-	  transform:scale(1);
-	}
-	60% {
-	  transform:scale(0.8);
-	  opacity: 0.5;
-	}
-	65% {
-	  transform:scale(1.3);
-	}
-	70%, 100% {
-	  transform:scale(1);
 	}
 } */
