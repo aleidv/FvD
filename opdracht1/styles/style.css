@@ -27,17 +27,25 @@ button:not([disabled]), summary {
 	--color-background:#eee;
 	--color-text-red: #e01f3d;
 	--color-text-white: #ffffff;
+	--color-wave: #3a3a3a;
 	--gradient-background: repeating-linear-gradient(-45deg, #302f2f, #302f2f 6px, #2a2929 0, #2a2929 12px);
 
 
 	/* animaties */
 	/* --pulse-animation: pulse 2s ease 2s infinite normal forwards; */
 
-	--pulse-animation-pause: pulse 2s ease 2s infinite normal forwards paused;
-	--pulse-animation-play: pulse 2s ease 2s infinite normal forwards;
+	--pulse-animation-pause: pulse ease 2s infinite normal forwards paused;
+	--pulse-animation-play: pulse ease 2s infinite normal forwards;
 
-	--color-animation: colorChange 8s linear infinite;
+	--color-animation-pause: colorChange 8s linear infinite paused;
+	--color-animation-play: colorChange 8s linear infinite;
+	--color-animation: colorChange 10s linear infinite;
 	/* Bron: https://webcode.tools/generators/css/keyframe-animation */
+
+	--wave-animation: wave ease 2s infinite normal forwards;
+
+	--text-drop-animation-pause: textDrops ease 2s infinite normal forwards paused;
+	--text-drop-animation-play: textDrops ease 2s infinite normal forwards;
 
 	--stick-size: .75em;
 }
@@ -85,15 +93,18 @@ h1 {
 
 span {
 	display: inline-block;
-	animation: var(--pulse-animation-pause);
+	animation: var(--pulse-animation);
+	animation: var(--text-drop-animation-pause);
 }
 
+
+
 h1:hover {
-	animation: var(--pulse-animation-play);
+	animation: var(--pulse-animation-play), var(--color-animation);
 	cursor: pointer;
 }
 
-
+/* eerste poging tot wave */
 /* h1::after {
 	content: "hallo";
 	position: absolute;
@@ -124,12 +135,8 @@ h1:hover {
 
 } */
 
-repeat {
-    display: block;
-}
-
-h1::after {
-
+/* vierkantje */
+/* h1::after {
 	content:"";
 	position: absolute;
 	bottom: -2em;
@@ -138,9 +145,27 @@ h1::after {
 	width:var(--stick-size);
 	height:var(--stick-size);
 	background-color:dodgerblue;
+} */
 
+h1::after {
+	content: 'lllllllllllllllllllllllllllll';
+	position: absolute;
+	display: block;
+	bottom: -2em;
+	left: 0;
+	right: 0;
+	color: transparent;
+	text-decoration: wavy;
+	text-shadow: none;
+	text-decoration-color: var(--color-wave);
+	text-decoration-line: underline;
+	animation: var(--pulse-animation-play);
 }
 
+
+/* h1:hover::after {
+	animation: var();
+} */
 
 
 @keyframes pulse {
@@ -192,4 +217,68 @@ h1::after {
 	100% {
 		filter: hue-rotate(360deg);
 	}
+}
+
+/* @keyframes wave {
+
+0% {
+	transform: translateX(-1px);
+}
+100% {
+	transform: translateX(-10px);
+}
+} */
+
+@keyframes wave {
+	0% {
+		animation-timing-function: ease-out;
+		transform: scale(1);
+		transform-origin: center center;
+	}
+
+	5% {
+		animation-timing-function: ease-in;
+		transform: scale(0.91);
+	}
+
+	16% {
+		animation-timing-function: ease-out;
+		transform: scale(0.98);
+	}
+
+	40% {
+		animation-timing-function: ease-out;
+		transform: scale(1);
+	}
+
+	45% {
+		animation-timing-function: ease-in;
+		transform: scale(0.91);
+	}
+
+	52% {
+		animation-timing-function: ease-out;
+		transform: scale(0.98);
+	}
+
+	68% {
+		animation-timing-function: ease-in;
+		transform: scale(0.87);
+	}
+
+	75% {
+		animation-timing-function: ease-out;
+		transform: scale(1.1);
+	}
+}
+
+@keyframes textDrops {
+0% {
+	transform: skew(0deg);
+	scale: (0);
+}
+100% {
+	transform: skew(-81deg, 5deg);
+	scale: (0.3em);
+}
 }
