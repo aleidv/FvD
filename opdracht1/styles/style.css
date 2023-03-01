@@ -31,9 +31,15 @@ button:not([disabled]), summary {
 
 
 	/* animaties */
-	--pulse-animation: pulse 2s ease 2s infinite normal forwards;
+	/* --pulse-animation: pulse 2s ease 2s infinite normal forwards; */
+
+	--pulse-animation-pause: pulse 2s ease 2s infinite normal forwards paused;
+	--pulse-animation-play: pulse 2s ease 2s infinite normal forwards;
+
 	--color-animation: colorChange 8s linear infinite;
 	/* Bron: https://webcode.tools/generators/css/keyframe-animation */
+
+	--stick-size: .75em;
 }
 
 
@@ -79,11 +85,16 @@ h1 {
 
 span {
 	display: inline-block;
-	animation: var(--pulse-animation);
+	animation: var(--pulse-animation-pause);
+}
+
+h1:hover {
+	animation: var(--pulse-animation-play);
+	cursor: pointer;
 }
 
 
-h1::after {
+/* h1::after {
 	content: "hallo";
 	position: absolute;
 	bottom: -2em;
@@ -111,7 +122,23 @@ h1::after {
 	animation: var(--pulse-animation);
 	animation: var(--color-animation);
 
-	
+} */
+
+repeat {
+    display: block;
+}
+
+h1::after {
+
+	content:"";
+	position: absolute;
+	bottom: -2em;
+	left: 0;
+	display:inline-block;
+	width:var(--stick-size);
+	height:var(--stick-size);
+	background-color:dodgerblue;
+
 }
 
 
