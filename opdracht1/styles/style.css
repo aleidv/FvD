@@ -1,4 +1,5 @@
 /* CSS Document */
+
 @font-face {
     font-family: 'abeatbykairegular';
     src: url('../fonts/abeatbykai-ypxy-webfont.woff2') format('woff2'),
@@ -27,13 +28,12 @@ button:not([disabled]), summary {
 	--color-background:#eee;
 	--color-text-red: #e01f3d;
 	--color-text-white: #ffffff;
-	--color-wave: #3a3a3a;
-	--gradient-background: repeating-linear-gradient(-45deg, #302f2f, #302f2f 6px, #2a2929 0, #2a2929 12px);
+	--color-wave: #3a3a3a;	
+	--gradient-background: linear-gradient(#c4c4c4, #272727);
 
 
 	/* animaties */
-	/* --pulse-animation: pulse 2s ease 2s infinite normal forwards; */
-
+	--pulse-animation: pulse 2s ease 2s infinite normal forwards;
 	--pulse-animation-pause: pulse ease 2s infinite normal forwards paused;
 	--pulse-animation-play: pulse ease 2s infinite normal forwards;
 
@@ -62,7 +62,7 @@ button:not([disabled]), summary {
 
 
 
-/* JOUW STYLING */
+/* MIJN STYLING */
 
 body {
 	margin: 0;
@@ -93,8 +93,7 @@ h1 {
 
 span {
 	display: inline-block;
-	animation: var(--pulse-animation);
-	animation: var(--text-drop-animation-pause);
+	animation: var(--pulse-animation-pause);
 }
 
 
@@ -147,7 +146,23 @@ h1:hover {
 	background-color:dodgerblue;
 } */
 
-h1::after {
+/* rondje met b */
+/* h1::after {
+	content:"b";
+	color: white;
+
+	position: absolute;
+	bottom: -2em;
+	left: 0;
+	display:inline-block;
+	width:var(--stick-size);
+	height:var(--stick-size);
+	border-radius: 50%;
+	background-color:black;
+} */
+
+/* wavy line */
+/* h1::after {
 	content: 'lllllllllllllllllllllllllllll';
 	position: absolute;
 	display: block;
@@ -160,11 +175,6 @@ h1::after {
 	text-decoration-color: var(--color-wave);
 	text-decoration-line: underline;
 	animation: var(--pulse-animation-play);
-}
-
-
-/* h1:hover::after {
-	animation: var();
 } */
 
 
@@ -228,7 +238,6 @@ h1::after {
 	transform: translateX(-10px);
 }
 } */
-
 @keyframes wave {
 	0% {
 		animation-timing-function: ease-out;
@@ -282,3 +291,67 @@ h1::after {
 	scale: (0.3em);
 }
 }
+
+
+
+/* h1 {
+	animation: bounce 0.9s both;
+	animation: drops 1s ease-out;
+} */
+
+ @keyframes bounce {
+	0% {
+	  transform: translateY(-45px);
+	  animation-timing-function: ease-in;
+	  opacity: 1;
+	}
+	24% {
+	  opacity: 1;
+	}
+	40% {
+	  transform: translateY(-24px);
+	  animation-timing-function: ease-in;
+	}
+	65% {
+	  transform: translateY(-12px);
+	  animation-timing-function: ease-in;
+	}
+	82% {
+	  transform: translateY(-6px);
+	  animation-timing-function: ease-in;
+	}
+	93% {
+	  transform: translateY(-4px);
+	  animation-timing-function: ease-in;
+	}
+	25%,
+	55%,
+	75%,
+	87% {
+	  transform: translateY(0px);
+	  animation-timing-function: ease-out;
+	}
+	100% {
+	  transform: translateY(0px);
+	  animation-timing-function: ease-out;
+	  opacity: 1;
+	}
+  }
+  
+
+  @keyframes drops {
+	0% {
+	  opacity:0;
+	  transform: translateX(-100px);
+	}
+	80%{
+	  transform: translateX(-10px);
+	}
+	100% {
+	  transform: translate(0);
+	}
+  }
+
+ /* h1:hover {
+	transform: scale(1.1) translate(17px, 0px) skew(-85deg, 0deg);
+ }  */
