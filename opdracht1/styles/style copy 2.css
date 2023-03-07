@@ -1,4 +1,4 @@
-/* CSS Document */
+/* CSS DOCUMEMT */
 
 @font-face {
     font-family: 'abeatbykairegular';
@@ -34,10 +34,9 @@
 }
 
 
-
 /* DARK MODE */
 @media (prefers-color-scheme:dark) { 
-	:root{
+	:root {
 	--background:linear-gradient(#c4c4c4, #272727);
 	--color-text: white;
 	--color-wave: #e01f3d;	
@@ -46,31 +45,39 @@
 }
 
 
+/* REDUCED MOTION */
+@media (prefers-reduced-motion) {
+  :root {
+	--pulse-animation: none;
+  	}
+}
 
-/* MIJN STYLING */
 
 body {
-	margin: 0;
-	height: 100dvh;
 	display: grid;
 	place-content: center;
+	height: 100dvh;
 	/* Bron: https://codepen.io/shooft/pen/gOdbPKV */
+	margin: 0;
 
 	background: var(--background);
-	
-	/* position: relative;
-	overflow-x: hidden; */
 
 	cursor: var(--cursor);
-
+	
+	/* position: relative; */
+	/* overflow-x: hidden; */
 }
 
 h1 {
 	font-family: abeatbykairegular, sans-serif;
 	font-size: min(15vw, 5em);
+
 	display: flex;
 	justify-content: center;
 	/* de size is 15vw tot dat het font 5em heeft bereikt */
+
+	position: relative;
+	
 	color: var(--color-text);
 	text-shadow: 0 0.01em 1px rgba(0,0,0,0.10), 
 				 0 0.02em 2px rgba(0,0,0,0.10), 
@@ -79,8 +86,6 @@ h1 {
 				 0 0.16em 16px rgba(0,0,0,0.10);
 	/* Bron: https://tobiasahlin.com/blog/layered-smooth-box-shadows/ */
 	/* schaduw lagen, scherpte, afstand, spreiding, kleur & alfa (transparant) */
-
-	position: relative;
 }
 
 
@@ -97,17 +102,22 @@ h1:hover span {
 
 
 h1::after {
-	display: block;
 	content: url("../images/wave_line.svg");
-	width: 500%;
+
+	display: block;
+
 	position: absolute;
+
+	width: 500%;
 	bottom: -20vh;
+
 	animation: silenceWave 3s linear infinite;
 }
 
+
 /* h1:hover::after {
-	transform-origin: center;
 	animation: getWavy 0.5s ease infinite ;
+	transform-origin: center;
 } */
 
 
