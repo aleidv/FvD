@@ -258,3 +258,44 @@ h1::after {
 		transform: scale(1.1);
 	}
 }
+
+
+
+
+
+span {
+	display: flex;
+	justify-content: space-evenly;
+	animation: var(--pulse-animation-pause);
+	padding-left: 4vh;
+	
+}
+
+span::before {
+	content: "";
+	width: 2vh;
+	height: 6vh;
+	position: absolute;
+	bottom: -3em;
+	left: 0;
+	background-color: #b70202;
+}
+
+span::after {
+	content: "";
+	width: 2vh;
+	height: 6vh;
+	position: absolute;
+	bottom: -3em;
+	background-color: #272727;
+}
+
+span::after:nth-of-type(1) {
+	background-color: hotpink;
+}
+
+
+
+h1:hover span {
+	animation: var(--pulse-animation-play), var(--color-animation);
+}

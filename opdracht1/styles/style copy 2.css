@@ -30,7 +30,7 @@
 
 	--color-animation-pause: colorChange 8s linear infinite paused;
 	--color-animation-play: colorChange 8s linear infinite;
-	--color-animation: colorChange 10s linear infinite;
+	--color-animation: colorChange 5s linear infinite;
 	/* Bron: https://webcode.tools/generators/css/keyframe-animation */
 }
 
@@ -58,8 +58,9 @@ body {
 	/* Bron: https://codepen.io/shooft/pen/gOdbPKV */
 
 	background: var(--background);
-	position: relative;
-	/* overflow-x: hidden; */
+	
+	/* position: relative;
+	overflow-x: hidden; */
 
 	cursor: var(--cursor);
 
@@ -86,8 +87,7 @@ h1 {
 
 
 span {
-	display: flex;
-	justify-content: space-evenly;
+	display: inline-block;
 	padding-left: 4vh;
 }
 
@@ -107,7 +107,7 @@ h1::after {
 }
 
 h1:hover::after {
-	transform-origin: center center;
+	transform-origin: center;
 	animation: getWavy 0.5s ease infinite ;
 }
 
@@ -126,11 +126,11 @@ h1:hover::after {
 
 @keyframes getWavy {
 	0% {
-		transform: scale(0);
+		height: 1em;
 	}
 
 	100% {
-		transform: scaleY(5);
+		height: 3em;
 	}
 }
 
