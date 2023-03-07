@@ -6,6 +6,7 @@
          url('../fonts/abeatbykai-ypxy-webfont.woff') format('woff');
 	/* ^ Bron: https://www.fontsquirrel.com/tools/webfont-generator
 		 https://www.fontspace.com/abeatbykai-font-f11363 */
+
     font-weight: normal;
     font-style: normal;
 	font-display: fallback;
@@ -24,14 +25,12 @@
 	--color-text: #e01f3d;
 	--color-wave: #3a3a3a;	
 
-	--cursor: url(../images/cursor.png) 30 20, auto;
+	--cursor: url(../images/cursor_light_mode.png) 30 20, auto;
 
 	--pulse-animation: pulse ease 2s infinite normal forwards;
 
-	--color-animation-pause: colorChange 8s linear infinite paused;
-	--color-animation-play: colorChange 8s linear infinite;
 	--color-animation: colorChange 5s linear infinite;
-	/* Bron: https://webcode.tools/generators/css/keyframe-animation */
+	/* ^ Bron: https://webcode.tools/generators/css/keyframe-animation */
 }
 
 
@@ -42,7 +41,7 @@
 	--background:linear-gradient(#c4c4c4, #272727);
 	--color-text: white;
 	--color-wave: #e01f3d;	
-	--cursor: url(../images/cursor_dark.png) 30 20, auto;
+	--cursor: url(../images/cursor_dark_mode.png) 30 20, auto;
 	}
 }
 
@@ -102,39 +101,14 @@ h1::after {
 	content: url("../images/wave_line.svg");
 	width: 500%;
 	position: absolute;
-	bottom: -2em;
+	bottom: -20vh;
 	animation: silenceWave 3s linear infinite;
 }
 
-h1:hover::after {
+/* h1:hover::after {
 	transform-origin: center;
 	animation: getWavy 0.5s ease infinite ;
-}
-
-
-
-@keyframes silenceWave {
-
-0% {
-	transform: translateX(0px);
-}
-100% {
-	transform: translateX(-200px);
-}
-}
-
-
-@keyframes getWavy {
-	0% {
-		height: 1em;
-	}
-
-	100% {
-		height: 3em;
-	}
-}
-
-
+} */
 
 
 
@@ -185,5 +159,25 @@ h1:hover::after {
 @keyframes colorChange {
 	100% {
 		filter: hue-rotate(360deg);
+	}
+}
+
+@keyframes silenceWave {
+
+0% {
+	transform: translateX(0px);
+}
+100% {
+	transform: translateX(-200px);
+}
+}
+
+@keyframes getWavy {
+	0% {
+		height: 1em;
+	}
+
+	100% {
+		height: 3em;
 	}
 }
