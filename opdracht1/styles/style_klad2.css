@@ -1,0 +1,189 @@
+/* CSS Document */
+
+@font-face {
+    font-family: 'abeatbykairegular';
+    src: url('../fonts/abeatbykai-ypxy-webfont.woff2') format('woff2'),
+         url('../fonts/abeatbykai-ypxy-webfont.woff') format('woff');
+	/* ^ Bron: https://www.fontsquirrel.com/tools/webfont-generator
+		 https://www.fontspace.com/abeatbykai-font-f11363 */
+    font-weight: normal;
+    font-style: normal;
+	font-display: fallback;
+}
+
+
+/* CSS REMEDY */
+*, *::after, *::before {
+  box-sizing: border-box;  
+}
+
+
+/* CUSTOM PROPERTIES */
+:root {
+	--background:#eee;
+	--color-text: #e01f3d;
+	--color-wave: #3a3a3a;	
+
+	--cursor: url(../images/cursor.png) 30 20, auto;
+
+	--pulse-animation: pulse ease 2s infinite normal forwards;
+
+	--color-animation-pause: colorChange 8s linear infinite paused;
+	--color-animation-play: colorChange 8s linear infinite;
+	--color-animation: colorChange 10s linear infinite;
+	/* Bron: https://webcode.tools/generators/css/keyframe-animation */
+}
+
+
+
+/* DARK MODE */
+@media (prefers-color-scheme:dark) { 
+	:root{
+	--background:linear-gradient(#c4c4c4, #272727);
+	--color-text: white;
+	--color-wave: #e01f3d;	
+	--cursor: url(../images/cursor_dark.png) 30 20, auto;
+	}
+}
+
+
+
+/* MIJN STYLING */
+
+body {
+	margin: 0;
+	height: 100dvh;
+	display: grid;
+	place-content: center;
+	/* Bron: https://codepen.io/shooft/pen/gOdbPKV */
+
+	background: var(--background);
+	position: relative;
+	/* overflow-x: hidden; */
+
+	cursor: var(--cursor);
+
+}
+
+h1 {
+	font-family: abeatbykairegular, sans-serif;
+	font-size: min(15vw, 5em);
+	display: flex;
+	justify-content: center;
+	/* de size is 15vw tot dat het font 5em heeft bereikt */
+	color: var(--color-text);
+	text-shadow: 0 0.01em 1px rgba(0,0,0,0.10), 
+				 0 0.02em 2px rgba(0,0,0,0.10), 
+				 0 0.04em 4px rgba(0,0,0,0.10), 
+				 0 0.08em 8px rgba(0,0,0,0.10),
+				 0 0.16em 16px rgba(0,0,0,0.10);
+	/* Bron: https://tobiasahlin.com/blog/layered-smooth-box-shadows/ */
+	/* schaduw lagen, scherpte, afstand, spreiding, kleur & alfa (transparant) */
+
+	position: relative;
+}
+
+
+
+span {
+	display: flex;
+	justify-content: space-evenly;
+	padding-left: 4vh;
+}
+
+
+h1:hover span {
+	animation: var(--pulse-animation), var(--color-animation);
+}
+
+
+h1::after {
+	display: block;
+	content: url("../images/wave_line.svg");
+	width: 500%;
+	position: absolute;
+	bottom: -2em;
+	animation: silenceWave 3s linear infinite;
+}
+
+h1:hover::after {
+	transform-origin: center center;
+	animation: getWavy 0.5s ease infinite ;
+}
+
+
+
+@keyframes silenceWave {
+
+0% {
+	transform: translateX(0px);
+}
+100% {
+	transform: translateX(-200px);
+}
+}
+
+
+@keyframes getWavy {
+	0% {
+		transform: scale(0);
+	}
+
+	100% {
+		transform: scaleY(5);
+	}
+}
+
+
+
+
+
+@keyframes pulse {
+	0% {
+		animation-timing-function: ease-out;
+		transform: scale(1);
+		transform-origin: center center;
+	}
+
+	5% {
+		animation-timing-function: ease-in;
+		transform: scale(0.91);
+	}
+
+	16% {
+		animation-timing-function: ease-out;
+		transform: scale(0.98);
+	}
+
+	40% {
+		animation-timing-function: ease-out;
+		transform: scale(1);
+	}
+
+	45% {
+		animation-timing-function: ease-in;
+		transform: scale(0.91);
+	}
+
+	52% {
+		animation-timing-function: ease-out;
+		transform: scale(0.98);
+	}
+
+	68% {
+		animation-timing-function: ease-in;
+		transform: scale(0.87);
+	}
+
+	75% {
+		animation-timing-function: ease-out;
+		transform: scale(1.1);
+	}
+
+}
+
+@keyframes colorChange {
+	100% {
+		filter: hue-rotate(360deg);
+	}
+}
