@@ -29,11 +29,11 @@
 	--cursor: url(../images/cursor_light_mode.png) 30 20, auto;
 
 	--pulse-animation: pulse ease 2s infinite normal forwards;
-
+	--getWavy-animation: getWavy 1.5s ease infinite;
+	--wave-animation: silenceWave 0.5s linear infinite;
 	--color-animation: colorChange 5s linear infinite;
+	--fall-animation: fallDown 4s both, 5s;
 	/* ^ Bron: https://webcode.tools/generators/css/keyframe-animation */
-
-	/* nog meer animatie variabelen */
 }
 
 
@@ -52,6 +52,8 @@
 @media (prefers-reduced-motion) {
   :root {
 	--pulse-animation: none;
+	--getWavy-animation: none;
+	--color-animation: none;
   	}
 }
 
@@ -59,9 +61,9 @@
 body {
 	display: grid;
 	place-content: center;
+	margin: 0;
 	height: 100dvh;
 	/* Bron: https://codepen.io/shooft/pen/gOdbPKV */
-	margin: 0;
 
 	background: var(--background);
 
@@ -97,7 +99,7 @@ span {
 	padding-left: 4vh;
 	
 	transform-origin: 50% 70%;
-	animation: fallDown 4s both, 5s;
+	animation: var(--fall-animation);
 }
 
 
@@ -119,12 +121,12 @@ h1::after {
 	width: 600%;
 	bottom: -20vh;
 
-	animation: silenceWave 3s linear infinite;
+	animation: var(--wave-animation);
 }
 
 
 h1:hover::after {
-	animation: getWavy 1.5s ease infinite, silenceWave 0.5s linear infinite;
+	animation: var(--getWavy-animation), var(--wave-animation);
 }
 
 

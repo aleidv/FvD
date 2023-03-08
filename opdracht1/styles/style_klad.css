@@ -265,6 +265,7 @@ span {
 	justify-content: space-evenly;
 	padding-left: 2vw;
 	animation: var(--pulse-animation-pause);
+	width:1em;
 }
 
 /* span::before {
@@ -280,14 +281,14 @@ span {
 span::after {
 	content:"";
 	display: inline-block;
-	position: absolute;
-	background: #272727;
+	position: fixed;
+	background: #ff2727;
 	border-radius: 50%;
 	height: 10vh;
 	width: 1.5vh;
 	bottom: -20vh;
 	animation: animate 1.2s linear infinite;
-	transform-origin: center;
+	transform-origin: 50%;
 }
 
 span::before {
