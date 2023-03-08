@@ -17,8 +17,6 @@ Nb. Door *open* toe te voegen aan een *details* element kun je deze standaard op
   1. https://www.fontspace.com/abeatbykai-font-f11363
   2. https://codepen.io/shooft/pen/gOdbPKV
   3. https://tobiasahlin.com/blog/layered-smooth-box-shadows/
-  4. ...
-  5. ...
 
 
 
