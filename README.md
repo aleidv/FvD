@@ -47,17 +47,34 @@ Nb. Door *open* toe te voegen aan een *details* element kun je deze standaard op
 
 
   ### Je uitkomst - karakteristiek screenshot(s):
-  <img src="readme-images/dummy-plaatje.svg" width="375px" alt="uitomst opdracht 1">
+  <img src="readme-images/result_light_mode.png" width="375px" alt="uitomst opdracht 1">
+  <img src="readme-images/result_dark_mode.png" width="375px" alt="uitomst opdracht 1">
 
 
   ### Dit ging goed/Heb ik geleerd: 
   Korte omschrijving met plaatje(s)
 
-  <img src="readme-images/dummy-plaatje.svg" width="375px" alt="top">
+  > het pulserende effect dat ik aan mijn logo heb willen geven met @keyframes is gemakkelijk gegaan
+  > het is me gelukt om de tekst te laten omvallen met @keyframes
+  > ik heb geleerd hoe je door het kleurenwiel gaat en een element meerdere kleuren geeft dmv van een filter
+  > ik heb geleerd hoe je op de meest correcte manier (voor deze opdracht) een font importeerd 
+  > ik heb geleerd dat je met ::after & ::before elementen achter en voor een ander element kunt zetten en hoe je dit kunt stylen
+  > de theorie van de lessen begrijpen ging goed
+
+  <img src="readme-images/result_pump_1.png" width="375px" alt="top">
+  <img src="readme-images/result_pump_2.png" width="375px" alt="top">
+  <img src="readme-images/result_pump_3.png" width="375px" alt="top">
+  <img src="readme-images/result_pump_4.png" width="375px" alt="top">
+  <img src="readme-images/result_falls_1.png" width="375px" alt="top">
+  <img src="readme-images/result_falls_2.png" width="375px" alt="top">
 
 
   ### Dit was lastig/Is niet gelukt:
   Korte omschrijving met plaatje(s)
+
+  > ik heb op meerdere manieren geprobeerd om een pulserende lijn als ::after neer te zetten
+  > o.a. door een background-image met een gradient, door een text decoration: underline wavy en transparante text en door het stijlen van een svg in de content maar geen een manier hiervan is mij gelujkt
+  > ik heb geprobeerd audio te importeren dat pas afspeelt wanneer er over heen wordt gehoverd, dit is niet gelukt
 
   <img src="readme-images/dummy-plaatje.svg" width="375px" alt="bummer">
 </details>
