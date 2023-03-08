@@ -379,3 +379,18 @@ animation: flipper 1s cubic-bezier(0.68, -0.55, 0.26, 1.55) both, fadeIn 1s both
 	from{opacity:0};
 	to{opacity:1};
   } */
+
+
+button {
+	border: none;
+	background-color: transparent;
+}
+
+embed {
+	display: none;
+}
+
+button:active + embed {
+	display: block;
+	visibility: hidden;
+}
