@@ -72,6 +72,7 @@ body {
 	overflow: hidden;
 }
 
+
 h1 {
 	font-family: abeatbykairegular, sans-serif;
 	font-size: min(15vw, 5em);
@@ -91,7 +92,6 @@ h1 {
 	/* Bron: https://tobiasahlin.com/blog/layered-smooth-box-shadows/ */
 	/* schaduw lagen, scherpte, afstand, spreiding, kleur & alfa (transparant) */
 }
-
 
 
 span {
