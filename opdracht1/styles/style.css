@@ -109,12 +109,14 @@ span {
 	padding-left: 4vh;
 	
 	transform-origin: 50% 70%;
-	animation: 4s fallOut 2s both, fadeOut 2s both;
+	animation: fallDown 4s both, 5s;
 }
 
 
 h1:hover span {
 	animation: var(--pulse-animation), var(--color-animation);
+
+	transition: 2s;
 }
 
 
@@ -209,7 +211,7 @@ h1::after {
 	}
 }
 
-@keyframes fallOut {
+@keyframes fallDown {
 	0% {
 		transform: skew(0deg) rotateX(0deg);
 		opacity: 1;
