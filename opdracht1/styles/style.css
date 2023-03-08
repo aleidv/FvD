@@ -66,6 +66,8 @@ body {
 	background: var(--background);
 
 	cursor: var(--cursor);
+
+	overflow: hidden;
 }
 
 h1 {
