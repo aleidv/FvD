@@ -56,9 +56,11 @@ body {
 /* jouw code */
 
 body ul {
-	margin: 0 auto 0 auto;
-	width: clamp(1.5em, 2vmin, 1em);
-	height: clamp(1.5em, 2vmin, 1em);
+	margin:0 auto;
+	padding: 0;
+	width: clamp(6em, 80vw, 30em);
+	gap: .5em;
+	background-color: hotpink;
 	
 	display: grid;
 	grid-auto-flow: column;
@@ -67,3 +69,7 @@ body ul {
 	list-style-type: none;
 }
 
+body ul li {
+	aspect-ratio: 1;
+	background-color: #ffdddd;
+}
