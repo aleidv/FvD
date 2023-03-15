@@ -55,3 +55,18 @@ body {
 
 /* jouw code */
 
+body ul {
+	margin: 0 auto 0 auto;
+	width: clamp(1.5em, 2vmin, 1em);
+	height: clamp(1.5em, 2vmin, 1em);
+	
+	display: grid;
+	grid-auto-flow: column;
+	grid-template-columns: repeat(5, 1fr);
+	grid-template-rows: repeat(5, 1fr);
+	list-style-type: none;
+}
+
+body ul li {
+
+}
