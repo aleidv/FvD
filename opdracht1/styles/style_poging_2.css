@@ -99,6 +99,7 @@ span {
 	padding-left: 4vh;
 	
 	transform-origin: 50% 70%;
+	/* de tekst valt neer vanaf ... */
 	animation: var(--fall-animation);
 }
 
@@ -110,24 +111,14 @@ h1:hover span {
 }
 
 
-h1::after {
-	content: url("../images/wave_line.svg");
+/* h1::after {
 
-	display: block;
-	justify-self: center;
-
-	position: absolute;
-
-	width: 600%;
-	bottom: -20vh;
-
-	animation: var(--wave-animation);
-}
+} */
 
 
-h1:hover::after {
-	animation: var(--getWavy-animation), var(--wave-animation);
-}
+/* h1:hover::after {
+
+} */
 
 
 
