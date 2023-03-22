@@ -1,12 +1,15 @@
-/* CSS Document */
+/* CSS DOCUMENT */
 
-/*********/
 /* FONTS */
-/*********/
 @font-face {
 	font-family: 'sacramento';
 	src: url('../fonts/sacramento.ttf') format('truetype');
-	/* ^ Bron: https://fonts.google.com/specimen/Sacramento */
+		/* ^ Bron: https://fonts.google.com/specimen/Sacramento */
+	/* src: url('../fonts/poppins.ttf') format('truetype'); */
+	/* hoe voeg ik dit tweede font toe? */
+		/* ^ Bron: https://fonts.google.com/specimen/Poppins */
+
+
 	font-weight: normal;
 	font-style: normal;
 	/* font-display: fallback; */
@@ -15,9 +18,7 @@
 
 
 
-/**************/
 /* CSS REMEDY */
-/**************/
 *, *::after, *::before {
   box-sizing:border-box;  
 }
@@ -28,98 +29,117 @@ button:not[disabled], summary {
 
 
 
-/*********************/
 /* CUSTOM PROPERTIES */
-/*********************/
 :root {
-	/* startje */
 	--color-text:#fff;
-	--color-white:#fff;
 	--color-shadow: #bc13fe;
 	--color-background:#000;
-	/* --shadow: 
-	0 0 0.5em var(--color-white),
-	0 0 0.7em var(--color-white),
-	0 0 2em var(--color-shadow),
-	0 0 3em var(--color-shadow),
-	0 0 5em var(--color-shadow),
-	0 0 9em var(--color-shadow); */
 
-
+	--color-white:#fff;
 	--color-blue: #40e1f7;
 	--color-purple: #400d51;
 	--color-licht-purple: #bc13fe;
 	--color-roze: #d800a6;
 	--color-geel: #e6ff00;
 	--color-donker-geel: #f0b80c;
+	/* ^ weghalen */
 }
 
 
+/* DARK MODE */
+/* @media (prefers-color-scheme:dark) { 
+	:root {
 
-/****************/
-/* JOUW STYLING */
-/****************/
+	}
+} */
+
+
+
+/* REDUCED MOTION */
+/* @media (prefers-reduced-motion) {
+  :root {
+
+  	}
+} */
+
+
+
 body {
-	background-color:var(--color-background);
+	background-color: var(--color-background);
+	/* cursor: */
 }
 
 h1 {
 	font-family: 'sacramento', sans-serif;
-	font-size: 4em;
+	font-size: min(15vw, 8em);
 	text-align: center;
+	
 	color: var(--color-text);
-	/* text-shadow: var(--shadow); */
-	text-shadow: 0 0em 0.2em var(--color-shadow), 
-				 0 0em 0.3em var(--color-shadow), 
-		 		 0 0em 0.4em var(--color-shadow),
-				 0 0em 0.6em var(--color-shadow),
+	text-shadow: 0 0em .2em var(--color-white), 
+				 0 0em .3em var(--color-shadow), 
+		 		 0 0em .4em var(--color-shadow),
+				 0 0em .6em var(--color-shadow),
 				 0 0em 7.5em var(--color-shadow),
 				 0 0em 15em var(--color-shadow),
 				 0 0em 30em var(--color-shadow);
 }
 
-/* jouw code */
+h2 {
+	font-size: 1em;
+	font-size: min(15vw, 1.5em);
+	text-align: center;
+
+	color: var(--color-text);
+}
 
 body ul {
-	margin:0 auto;
-	padding: 0;
-	width: clamp(6em, 80vw, 30em);
-	height: clamp(6em, 80vw, 30em);
-	gap: .4em;
-	background-color: var(--color-roze);
-	
 	display: grid;
 	grid-auto-flow: column;
 	grid-template-columns: repeat(5, 1fr);
 	grid-template-rows: repeat(5, 1fr);
+	gap: .4em;
+
+	margin: 0 auto;
+	padding: .4em;
+
+	width: clamp(6em, 80vw, 30em);
+	height: clamp(6em, 80vw, 30em);
+	
 	list-style-type: none;
 
-	padding: 0.4em;
-	border-radius: 0.5em;
-	box-shadow: var(--shadow);
+	background-color: #d800a6;
+	border-radius: .5em;
+	box-shadow: 0 0em .5em var(--color-white), 
+				0 0em 1.1em var(--color-shadow), 
+				0 0em 2em var(--color-shadow);
 }
 
 body ul li {
 	background-color: var(--color-geel);
-	border-radius: 0.5em;
-
+	border-radius: .5em;
 }
 
 ul li input {
+	margin: 0;
 	width: 100%;
 	height: 100%;
+
 	appearance: none;
-	margin: 0;
-	filter: drop-shadow(0em 0em 0.8em #bc13fe);
+
+	filter: drop-shadow(0em 0em .8em #bc13fe);
 }
 
 ul li input::before {
 	content: "";
 	display: inline-block;
+
 	width: 100%;
 	height: 100%;
+
 	background-color: var(--color-white);
+
 	opacity: 0;
+	
 	clip-path: polygon(50% 4%, 61% 35%, 95% 36%, 68% 57%, 81% 94%, 50% 70%, 19% 94%, 32% 57%, 4% 37%, 39% 35%);
 	/* ^ Bron: https://bennettfeely.com/clippy/ */
 }
