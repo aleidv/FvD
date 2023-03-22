@@ -37,6 +37,21 @@ button:not[disabled], summary {
 	--color-white:#fff;
 	--color-shadow: #bc13fe;
 	--color-background:#000;
+	/* --shadow: 
+	0 0 0.5em var(--color-white),
+	0 0 0.7em var(--color-white),
+	0 0 2em var(--color-shadow),
+	0 0 3em var(--color-shadow),
+	0 0 5em var(--color-shadow),
+	0 0 9em var(--color-shadow); */
+
+
+	--color-blue: #40e1f7;
+	--color-purple: #400d51;
+	--color-licht-purple: #bc13fe;
+	--color-roze: #d800a6;
+	--color-geel: #e6ff00;
+	--color-donker-geel: #f0b80c;
 }
 
 
@@ -52,14 +67,15 @@ h1 {
 	font-family: 'sacramento', sans-serif;
 	font-size: 4em;
 	text-align: center;
-	color:var(--color-text);
-	text-shadow:
-	  0 0 0.5em var(--color-white),
-	  0 0 0.7em var(--color-white),
-	  0 0 2em var(--color-shadow),
-	  0 0 4em var(--color-shadow),
-	  0 0 8em var(--color-shadow),
-	  0 0 16em var(--color-shadow);
+	color: var(--color-text);
+	/* text-shadow: var(--shadow); */
+	text-shadow: 0 0em 0.2em var(--color-shadow), 
+				 0 0em 0.3em var(--color-shadow), 
+		 		 0 0em 0.4em var(--color-shadow),
+				 0 0em 0.6em var(--color-shadow),
+				 0 0em 7.5em var(--color-shadow),
+				 0 0em 15em var(--color-shadow),
+				 0 0em 30em var(--color-shadow);
 }
 
 /* jouw code */
@@ -69,8 +85,8 @@ body ul {
 	padding: 0;
 	width: clamp(6em, 80vw, 30em);
 	height: clamp(6em, 80vw, 30em);
-	gap: .5em;
-	background-color: hotpink;
+	gap: .4em;
+	background-color: var(--color-roze);
 	
 	display: grid;
 	grid-auto-flow: column;
@@ -80,10 +96,11 @@ body ul {
 
 	padding: 0.4em;
 	border-radius: 0.5em;
+	box-shadow: var(--shadow);
 }
 
 body ul li {
-	background-color: #ffdddd;
+	background-color: var(--color-geel);
 	border-radius: 0.5em;
 
 }
@@ -93,6 +110,7 @@ ul li input {
 	height: 100%;
 	appearance: none;
 	margin: 0;
+	filter: drop-shadow(0em 0em 0.8em #bc13fe);
 }
 
 ul li input::before {
@@ -100,7 +118,7 @@ ul li input::before {
 	display: inline-block;
 	width: 100%;
 	height: 100%;
-	background-color: #111;
+	background-color: var(--color-white);
 	opacity: 0;
 	clip-path: polygon(50% 4%, 61% 35%, 95% 36%, 68% 57%, 81% 94%, 50% 70%, 19% 94%, 32% 57%, 4% 37%, 39% 35%);
 	/* ^ Bron: https://bennettfeely.com/clippy/ */
