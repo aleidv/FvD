@@ -42,10 +42,8 @@ function opDeKaart() {
         var listItem = 
         `
         <li>
-        <input type="checkbox" name="${nummer}" id="">
-        <label for="${nummer}">
-        <p> ${nummer} </p>
-        </label>
+        <input type="checkbox" name="${nummer}" id="${nummer}">
+        <label for="${nummer}">${nummer}</label>
         </li> 
         `;
 
