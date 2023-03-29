@@ -31,19 +31,21 @@ button:not[disabled], summary {
 
 /* CUSTOM PROPERTIES */
 :root {
-	--color-text:#fff;
-	--color-shadow: #bc13fe;
-	--color-background:#000;
-
-	--color-white:#fff;
-	--color-blue: #40e1f7;
-	--color-purple: #400d51;
-	--color-licht-purple: #bc13fe;
-	--color-roze: #d800a6;
-	--color-geel: #e6ff00;
-	--color-donker-geel: #f0b80c;
-	/* ^ weghalen */
+	--text-color:#fff;
+	--background-color:#000;
 }
+
+/* wordt gebruikt om alle elementen op de webpagina te selecteren */
+/* zorg ervoor dat variabelen binnen variabelen kunnen worden aangepast */
+* {
+	--glow: 0 0em .3em white, 
+			0 0em .4em var(--glow-color), 
+			0 0em .5em var(--glow-color),
+			0 0em .6em var(--glow-color),
+			0 0em 7.5em var(--glow-color),
+			0 0em 15em var(--glow-color);
+}
+
 
 
 /* DARK MODE */
@@ -65,23 +67,19 @@ button:not[disabled], summary {
 
 
 body {
-	background-color: var(--color-background);
+	background-color: var(--background-color);
 	/* cursor: */
 }
 
 h1 {
 	font-family: 'sacramento', sans-serif;
-	font-size: min(15vw, 8em);
+	font-size: min(12vw, 8em);
 	text-align: center;
 	
-	color: var(--color-text);
-	text-shadow: 0 0em .2em var(--color-white), 
-				 0 0em .3em var(--color-shadow), 
-		 		 0 0em .4em var(--color-shadow),
-				 0 0em .6em var(--color-shadow),
-				 0 0em 7.5em var(--color-shadow),
-				 0 0em 15em var(--color-shadow),
-				 0 0em 30em var(--color-shadow);
+	color: var(--text-color);
+
+	text-shadow: var(--glow);
+	--glow-color: #bc13fe;
 }
 
 h2 {
@@ -89,7 +87,7 @@ h2 {
 	font-size: min(15vw, 1.5em);
 	text-align: center;
 
-	color: var(--color-text);
+	color: var(--text-color);
 }
 
 body ul {
@@ -97,26 +95,28 @@ body ul {
 	grid-auto-flow: column;
 	grid-template-columns: repeat(5, 1fr);
 	grid-template-rows: repeat(5, 1fr);
-	gap: .4em;
+	gap: 0.5em;
 
 	margin: 0 auto;
-	padding: .4em;
+	padding: 0em;
 
 	width: clamp(6em, 80vw, 30em);
 	height: clamp(6em, 80vw, 30em);
 	
 	list-style-type: none;
 
-	background-color: #d800a6;
-	border-radius: .5em;
-	box-shadow: 0 0em .5em var(--color-white), 
-				0 0em 1.1em var(--color-shadow), 
-				0 0em 2em var(--color-shadow);
+	background-color: transparent;
+
+	border-radius: 1em;
+	box-shadow: var(--glow);
+	--glow-color: rgba(255, 255, 0, 0.11);
 }
 
 body ul li {
-	background-color: var(--color-geel);
-	border-radius: .5em;
+	background-color: transparent;
+	border-radius: 1em;
+	box-shadow: var(--glow);
+	--glow-color:rgba(255, 255, 0, 0.231);
 }
 
 ul li input {
@@ -136,7 +136,7 @@ ul li input::before {
 	width: 100%;
 	height: 100%;
 
-	background-color: var(--color-white);
+	background-color: white;
 
 	opacity: 0;
 	
