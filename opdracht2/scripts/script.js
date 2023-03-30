@@ -1,15 +1,19 @@
 // JavaScript Document
 
 
-// variabelen
+// VARIABELEN
 const unorderedList = document.querySelector("ul");
 const aantalNummers = 75;
+
+// Deze code maakt een array met getallen van 1 tot en met 'aantalNummers' en ...
 const ballen = Array.from(Array(aantalNummers), (_, index) => index + 1);
-console.log(ballen);
 // ^ Bron: https://www.w3schools.com/js/js_arrays.asp
 
 
-// Deze functie shuffelt random 
+// FUNCTIES
+// definieert een functie genaamd "shuffle" die een array als invoer accepteert en deze array willekeurig herschikt.
+// dit wordt gedaan met behulp van een algoritme dat elk element in de array overloopt, een willekeurig indexnummer genereert en het huidige element verwisselt met het element dat overeenkomt met het willekeurige indexnummer.
+// de functie retourneert de herschikte array.
 function shuffle(array) {
     let currentIndex = array.length,  randomIndex;
   
@@ -30,33 +34,38 @@ function shuffle(array) {
 //   ^ Bron: https://www.w3schools.com/js/js_arrays.asp
 
 
+// VARIABELEN 
 var geshuffeldeBallen = shuffle (ballen);
-console.log(geshuffeldeBallen);
-
 var kaartNummers = shuffle (geshuffeldeBallen).slice(0,25);
-console.log(kaartNummers);
 
 
+// FUNCTIES
+// genereert een lijst met checkboxes voor de kaartNummers die zijn gegenereerd. 
+// voor elk kaartnummer wordt er een nieuw listItem element gegenereerd en toegevoegd aan de unorderedList.
+// de counter "index" toegevoegd aan de forEach-lus. De counter begint bij 0 en wordt verhoogd bij elke iteratie van de lus. 
+// Het if statement gebruikt de ternary operator om te controleren of de huidige index 12 is (wat overeenkomt met het 13e item, omdat de index bij 0 begint). 
+// Als dit het geval is, wordt de "disabled" eigenschap toegevoegd aan de bijbehorende checkbox, anders wordt er niets toegevoegd.
 function opDeKaart() {
-    kaartNummers.forEach(nummer => {
-        var listItem = 
-        `
-        <li>
-        <input type="checkbox" name="${nummer}" id="${nummer}">
-        <label for="${nummer}">${nummer}</label>
-        </li> 
-        `;
+  kaartNummers.forEach((nummer, index) => {
+      var listItem = 
+      `
+      <li ${index === 12 ? "class='thirteenth-item'" : ""}>
+      <input type="checkbox" name="${nummer}" id="${nummer}" ${index === 12 ? "disabled" : ""}>
+      <label for="${nummer}" ${index === 12 ? "style='visibility: hidden'" : ""}>${nummer}</label>
+      </li> 
+      `;
 
-        unorderedList.insertAdjacentHTML ('beforeend', listItem);
-} );
+      unorderedList.insertAdjacentHTML ('beforeend', listItem);
+  } );
 }
 
+// roept de functie "opDeKaart" aan
 opDeKaart(); 
 
 
 
 
-// // spraak
+// // SPRAAK
 
 // /* de commando's */
 // const commandos = ['bingo']; /* deze lijst kun je uitbreiden */
@@ -107,9 +116,7 @@ opDeKaart();
 
 
 //     console.log(deTekstDieVerstaanIs);
-
 // }
-
 
 //   /* het luisterobject laten luisteren */
 // function luisteren() {
@@ -130,7 +137,5 @@ opDeKaart();
 
 //  /* na het laden van de pagina starten met luisteren */
 //  luisteren();
-
-
 
 // ^ Bron: https://codepen.io/shooft/pen/yLxzgzP

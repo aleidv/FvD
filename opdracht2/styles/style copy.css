@@ -94,45 +94,12 @@ body section {
 	gap: 2em;
 	/* order is een CSS flexbox property die gebruikt wordt om de volgorde van de flexbox items aan te passen zonder de HTML structuur te wijzigen. Een hogere waarde van order zorgt ervoor dat een flexbox item verder naar het einde van de flex container wordt verplaatst.  */
 	order: 2;
-	padding-left: 5em;
-}
-
-body section input {
-	appearance: none;
-	width: 3em;
-	height: 3em;
-
-	border-radius: 5px;
-}
-
-
-
-/* KEUZE IN KAART */
-body section input:first-of-type {
-	box-shadow: var(--glow);
-	--glow-color: #1327fe;
-}
-
-body section input:nth-of-type(2) {
-	box-shadow: var(--glow);
-	--glow-color: #dffe13;
-}
-
-body section input:last-of-type {
-	box-shadow: var(--glow);
-	--glow-color: #bc13fe;
-}
-
-body section input:checked {
-	background-color: #fff;
 }
 
 body section p {
 	font-family: 'poppins', sans-serif;
 	margin-top: .2em;
 }
-
-
 
 main {
 	display: flex;
@@ -144,7 +111,6 @@ main {
 
 	margin: auto;
 	margin-top: 3em;
-	padding-right: 5em;
 }
 
 main h1 {
@@ -173,10 +139,10 @@ main h2 {
 	z-index: 200;
 }
 
-/* main button {
-	font-family: 'poppins', sans-serif; */
+main button {
+	font-family: 'poppins', sans-serif;
 	/* nog naar kijken */
-	/* font-size: min(15vh, 0.8em);
+	font-size: min(15vh, 0.8em);
 
 	margin: 2em;
 	padding: 1em;
@@ -185,12 +151,12 @@ main h2 {
 	background-color: transparent;
 	color: var(--text-color);
 
-	border: none; */
+	border: none;
 	/* border-radius: 10px */
 
-	/* box-shadow: var(--glow);
+	box-shadow: var(--glow);
 	--glow-color: #fe13ee;
-} */
+}
 
 main ul {
 	display: grid;
@@ -212,39 +178,6 @@ main ul {
 	border-radius: 20px;
 }
 
-
-/* STYLING MEERDERE MAIN UL'S */
-/* main ul:first-of-type {
-	box-shadow: var(--glow);
-	--glow-color: #1327fe70;
-} */
-
-main ul:nth-of-type(2) {
-	display: none;
-	box-shadow: var(--glow);
-	--glow-color: #dffe1370;
-}
-
-main ul:last-of-type {
-	display: none;
-	box-shadow: var(--glow);
-	--glow-color: #bc13fe70;
-}
-
-body section:has( input:first-of-type:checked ) main ul:first-of-type {
-	display:grid;
-}
-
-body section:has( input:nth-of-type(2):checked ) main ul:nth-of-type(2) {
-	display:block;
-}
-
-body section:has( input:last-of-type:checked ) main ul:last-of-type {
-	display:block;
-}
-
-
-
 main ul:first-of-type li {
 	position: relative;
 
@@ -261,7 +194,6 @@ main ul:first-of-type li {
 
 main ul li input {
 	position: relative;
-
 	margin: 0;
 	width: 100%;
 	height: 100%;
@@ -289,7 +221,7 @@ main ul li input::before {
 }
 
 main ul li input:checked::before {
-	opacity: 0.6;
+	opacity: 1;
 }
 
 main ul li label {
