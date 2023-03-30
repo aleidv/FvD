@@ -95,6 +95,7 @@ body section {
 	/* order is een CSS flexbox property die gebruikt wordt om de volgorde van de flexbox items aan te passen zonder de HTML structuur te wijzigen. Een hogere waarde van order zorgt ervoor dat een flexbox item verder naar het einde van de flex container wordt verplaatst.  */
 	order: 2;
 	padding-left: 5em;
+	padding-top: 10em;
 }
 
 body section input {
@@ -168,7 +169,7 @@ main h2 {
 	/* nog naar kijken */
 	font-size: min(15vh, 1.5em);	
 	
-	margin: 0;
+	margin-top: 1;
 
 	z-index: 200;
 }
@@ -191,6 +192,24 @@ main h2 {
 	/* box-shadow: var(--glow);
 	--glow-color: #fe13ee;
 } */
+
+main button {
+	font-family: 'poppins', sans-serif;
+	/* nog naar kijken */
+	font-size: 1.5em;
+	color: black;
+	
+	margin: 2em;
+	padding: 1.5em;
+
+	background-color: #dffe13;
+
+	border: none ;
+	border-radius: 50%;
+
+	box-shadow: var(--glow);
+	--glow-color: #dffe1377;
+}
 
 main ul {
 	display: grid;
