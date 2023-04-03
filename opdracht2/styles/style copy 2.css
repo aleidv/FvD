@@ -155,8 +155,7 @@ body > section input:last-of-type {
 }
 
 body > section input:checked {
-	background-color: transparent;
-	border: 3px solid #fff;
+	background-color: #fff;
 }
 
 body > section p {
@@ -374,6 +373,39 @@ main ul {
 
 	border-radius: 20px;
 }
+
+
+/* STYLING MEERDERE MAIN UL'S */
+/* main ul:first-of-type {
+	box-shadow: var(--glow);
+	--glow-color: #1327fe70;
+} */
+
+
+main ul:nth-of-type(2) {
+	display: none;
+	box-shadow: var(--glow);
+	--glow-color: #dffe1370;
+}
+
+main ul:last-of-type {
+	display: none;
+	box-shadow: var(--glow);
+	--glow-color: #bc13fe70;
+}
+
+body section:has( input:first-of-type:checked ) main ul:first-of-type {
+	display:grid;
+}
+
+body section:has( input:nth-of-type(2):checked ) main ul:nth-of-type(2) {
+	display:block;
+}
+
+body section:has( input:last-of-type:checked ) main ul:last-of-type {
+	display:block;
+}
+
 
 
 main ul:first-of-type li {

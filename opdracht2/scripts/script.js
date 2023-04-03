@@ -5,6 +5,64 @@
 const unorderedList = document.querySelector("ul");
 const aantalNummers = 75;
 
+
+
+const buttonEl1 = document.querySelector("main section button:first-of-type")
+const buttonEl2 = document.querySelector("main section button:nth-of-type(2)")
+const buttonEl3 = document.querySelector("main section button:last-of-type")
+
+
+
+// buttonEl1.classList.add("prev");
+// buttonEl2.classList.add("active");
+// buttonEl3.classList.add("next");
+
+
+
+// const timeLimit = 1000;
+
+// let timer;
+// let isAnimating = false;
+
+// buttonEl2.addEventListener('click', function() {
+//   if (isAnimating) {
+//     return;
+//   }
+  
+//   clearTimeout(timer);
+  
+//   buttonEl2.classList.add('shake-animation');
+//   isAnimating = true;
+  
+//   timer = setTimeout(stopAnimation, timeLimit);
+// });
+
+// function stopAnimation() {
+//   buttonEl2.classList.remove('shake-animation');
+//   isAnimating = false;
+// }
+
+
+
+// Voeg een event listener toe voor het klikken op het knopelement
+buttonEl1.addEventListener('click', function() {
+  // Verwijder de 'rotate-animation'-klasse
+  buttonEl1.classList.remove('rotate-animation');
+  buttonEl2.classList.remove('roll-in-animation');
+  
+  // Forceer een herberekening van de DOM
+  void buttonEl1.offsetWidth;
+  void buttonEl2.offsetWidth;
+  
+  // Voeg de 'rotate-animation'-klasse weer toe
+  buttonEl1.classList.add('rotate-animation');
+  buttonEl2.classList.add('roll-in-animation');
+});
+// ^ Bron: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/void
+
+
+
+
 // Deze code maakt een array met getallen van 1 tot en met 'aantalNummers' en ...
 const ballen = Array.from(Array(aantalNummers), (_, index) => index + 1);
 // ^ Bron: https://www.w3schools.com/js/js_arrays.asp
@@ -64,8 +122,7 @@ opDeKaart();
 
 
 
-
-// // SPRAAK
+// // SPEACH
 
 // /* de commando's */
 // const commandos = ['bingo']; /* deze lijst kun je uitbreiden */
@@ -139,3 +196,34 @@ opDeKaart();
 //  luisteren();
 
 // ^ Bron: https://codepen.io/shooft/pen/yLxzgzP
+
+
+
+
+// !!!in plaats van styles in java, class toevoegen!!!
+const RadioInputEl1 = document.querySelector('section input:first-of-type');
+const RadioInputEl2 = document.querySelector('section input:nth-of-type(2)');
+const RadioInputEl3 = document.querySelector('section input:last-of-type');
+
+const mainListItems = document.querySelectorAll('main ul:first-of-type li');
+
+RadioInputEl1.addEventListener('click', function() {
+  mainListItems.forEach(item => {
+    item.style.boxShadow = 'var(--glow)';
+    item.style.setProperty('--glow-color', 'rgb(19, 39, 254,0.3)');
+  });
+});
+
+RadioInputEl2.addEventListener('click', function() {
+  mainListItems.forEach(item => {
+    item.style.boxShadow = 'var(--glow)';
+    item.style.setProperty('--glow-color', 'rgb(223, 254, 19, 0.3)');
+  });
+});
+
+RadioInputEl3.addEventListener('click', function() {
+  mainListItems.forEach(item => {
+    item.style.boxShadow = 'var(--glow)';
+    item.style.setProperty('--glow-color', 'rgb(188, 19, 254, 0.3)');
+  });
+});
