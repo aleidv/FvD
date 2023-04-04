@@ -1,227 +1,265 @@
-/* CSS DOCUMEMT */
+/* CSS DOCUMENT */
 
+/* Voeg het lettertype toe */
 @font-face {
     font-family: 'abeatbykairegular';
     src: url('../fonts/abeatbykai-ypxy-webfont.woff2') format('woff2'),
-         url('../fonts/abeatbykai-ypxy-webfont.woff') format('woff');
-	/* ^ Bron: https://www.fontsquirrel.com/tools/webfont-generator
+        url('../fonts/abeatbykai-ypxy-webfont.woff') format('woff');
+    /* ^ Bron: https://www.fontsquirrel.com/tools/webfont-generator
 		 https://www.fontspace.com/abeatbykai-font-f11363 */
 
     font-weight: normal;
     font-style: normal;
-	font-display: fallback;
+    font-display: fallback;
 }
 
 
 /* CSS REMEDY */
-*, *::after, *::before {
-  box-sizing: border-box;  
+
+/* Zorg ervoor dat alle elementen het box-sizing model gebruiken */
+*,
+*::after,
+*::before {
+    box-sizing: border-box;
 }
 
 
 /* CUSTOM PROPERTIES */
 :root {
-	--background:#eee;
-	--color-text: #e01f3d;
-	--color-wave: #3a3a3a;	
-	--color-shadow: rgba(0,0,0,0.10);
+    --background: #eee;
+    --color-text: #e01f3d;
+    --color-wave: #3a3a3a;
+    --color-shadow: rgba(0, 0, 0, 0.10);
 
-	--cursor: url(../images/cursor_light_mode.png) 30 20, auto;
+    --cursor: url(../images/cursor_light_mode.png) 30 20, auto;
 
-	--pulse-animation: pulse ease 2s infinite normal forwards;
-	--getWavy-animation: getWavy 1.5s ease infinite;
-	--wave-animation: silenceWave 0.5s linear infinite;
-	--color-animation: colorChange 5s linear infinite;
-	--fall-animation: 5s fallDown 4s both, 5s;
-	/* ^ Bron: https://webcode.tools/generators/css/keyframe-animation */
+    /* Animaties */
+    --bouncy-animation: bouncy .5s infinite alternate cubic-bezier(0.250, 0.460, 0.450, 0.940);
+    --pulse-animation: pulse ease 2s infinite normal forwards;
+    --color-animation: colorChange 5s linear infinite;
+    --fall-animation: 5s fallDown 4s both, 5s;
+    /* ^ Bron: https://webcode.tools/generators/css/keyframe-animation */
 }
 
 
 /* DARK MODE */
-@media (prefers-color-scheme:dark) { 
-	:root {
-	--background:linear-gradient(#c4c4c4, #272727);
-	--color-text: white;
-	--color-wave: #e01f3d;	
-	--cursor: url(../images/cursor_dark_mode.png) 30 20, auto;
-	}
+
+/* Dark mode media query */
+@media (prefers-color-scheme:dark) {
+    :root {
+        --background: linear-gradient(#c4c4c4, #272727);
+        --color-text: white;
+        --color-wave: #e01f3d;
+        --cursor: url(../images/cursor_dark_mode.png) 30 20, auto;
+    }
 }
 
 
 /* REDUCED MOTION */
+
+/* Verminderde beweging media query */
 @media (prefers-reduced-motion) {
-  :root {
-	--pulse-animation: none;
-	--getWavy-animation: none;
-	--color-animation: none;
-  	}
+    :root {
+        --pulse-animation: none;
+        --color-animation: none;
+        --bouncy-animation: none;
+    }
 }
 
 
 body {
-	display: grid;
-	place-content: center;
-	margin: 0;
-	height: 100dvh;
-	/* Bron: https://codepen.io/shooft/pen/gOdbPKV */
+    display: grid;
+    place-content: center;
+    margin: 0;
 
-	background: var(--background);
+    height: 100dvh;
+    /* Bron: https://codepen.io/shooft/pen/gOdbPKV */
 
-	cursor: var(--cursor);
+    background: var(--background);
 
-	overflow: hidden;
+    cursor: var(--cursor);
+
+    overflow: hidden;
 }
 
 
 h1 {
-	font-family: abeatbykairegular, sans-serif;
-	font-size: min(15vw, 5em);
-	/* de size is 15vw tot dat het font 5em heeft bereikt */
+    font-family: abeatbykairegular, sans-serif;
+    font-size: 10vh;
 
-	display: flex;
-	justify-content: center;
+    display: flex;
+    justify-content: center;
 
-	position: relative;
-	
-	color: var(--color-text);
-	text-shadow: 0 0.01em 1px var(--color-shadow), 
-				 0 0.02em 2px var(--color-shadow), 
-				 0 0.04em 4px var(--color-shadow),
-				 0 0.08em 8px var(--color-shadow),
-				 0 0.16em 16px var(--color-shadow);
-	/* Bron: https://tobiasahlin.com/blog/layered-smooth-box-shadows/ */
-	/* schaduw lagen, scherpte, afstand, spreiding, kleur & alfa (transparant) */
+    position: relative;
+
+    color: var(--color-text);
+
+    /* Schaduw-effect voor de tekst */
+    /* Schaduw lagen, scherpte, afstand, spreiding, kleur & alfa (transparant) */
+    text-shadow: 0 0.01em 1px var(--color-shadow),
+        0 0.02em 2px var(--color-shadow),
+        0 0.04em 4px var(--color-shadow),
+        0 0.08em 8px var(--color-shadow),
+        0 0.16em 16px var(--color-shadow);
+    /* Bron: https://tobiasahlin.com/blog/layered-smooth-box-shadows/ */
+
+}
+
+
+/* Animatie om de span te laten pulsen */
+@keyframes pulse {
+    0% {
+        animation-timing-function: ease-out;
+        transform: scale(1);
+        transform-origin: center center;
+    }
+
+    5% {
+        animation-timing-function: ease-in;
+        transform: scale(0.91);
+    }
+
+    16% {
+        animation-timing-function: ease-out;
+        transform: scale(0.98);
+    }
+
+    40% {
+        animation-timing-function: ease-out;
+        transform: scale(1);
+    }
+
+    45% {
+        animation-timing-function: ease-in;
+        transform: scale(0.91);
+    }
+
+    52% {
+        animation-timing-function: ease-out;
+        transform: scale(0.98);
+    }
+
+    68% {
+        animation-timing-function: ease-in;
+        transform: scale(0.87);
+    }
+
+    75% {
+        animation-timing-function: ease-out;
+        transform: scale(1.1);
+    }
+
+}
+
+
+/* Animatie om h1 te laten ovallen */
+@keyframes fallDown {
+    0% {
+        transform: skew(0deg) rotateX(0deg);
+        opacity: 1;
+    }
+
+    70% {
+        transform: skew(-0.04turn, 4deg) rotateX(-90deg);
+        opacity: 0.7;
+    }
+
+    100% {
+        transform: skew(-0.06turn, 5deg) rotateX(-90deg);
+        opacity: 0;
+    }
 }
 
 
 span {
-	display: inline-block;
-	padding-left: 4vh;
-	
-	transform-origin: 50% 70%;
-	animation: var(--fall-animation);
+    display: inline-block;
+    padding-left: 4vh;
+
+    /* Plaatsing van het animatie-effect */
+    transform-origin: 50% 70%;
+
+    animation: var(--pulse-animation), var(--fall-animation);
 }
 
 
-h1:hover span {
-	animation: var(--pulse-animation), var(--color-animation);
-
-	transition: 2s;
+h1::before {
+    /* Voeg geen inhoud toe aan het element */
+    content: "";
+    display: inline-block;
+    position: absolute;
+    background: #3a3a3a;
+    border-radius: 100%;
+    height: 5vh;
+    width: 5vh;
+    bottom: -20vh;
+    left: 2.5em;
 }
 
 
 h1::after {
-	content: url("../images/wave_line.svg");
-
-	display: block;
-	justify-self: center;
-
-	position: absolute;
-
-	width: 600%;
-	bottom: -20vh;
-
-	animation: var(--wave-animation);
+    content: "";
+    display: inline-block;
+    position: absolute;
+    background: #3a3a3a;
+    border-radius: 100%;
+    height: 5vh;
+    width: 5vh;
+    bottom: -20vh;
+    right: 2.5em;
 }
 
 
-h1:hover::after {
-	animation: var(--getWavy-animation), var(--wave-animation);
-}
-
-
-
-@keyframes pulse {
-	0% {
-		animation-timing-function: ease-out;
-		transform: scale(1);
-		transform-origin: center center;
-	}
-
-	5% {
-		animation-timing-function: ease-in;
-		transform: scale(0.91);
-	}
-
-	16% {
-		animation-timing-function: ease-out;
-		transform: scale(0.98);
-	}
-
-	40% {
-		animation-timing-function: ease-out;
-		transform: scale(1);
-	}
-
-	45% {
-		animation-timing-function: ease-in;
-		transform: scale(0.91);
-	}
-
-	52% {
-		animation-timing-function: ease-out;
-		transform: scale(0.98);
-	}
-
-	68% {
-		animation-timing-function: ease-in;
-		transform: scale(0.87);
-	}
-
-	75% {
-		animation-timing-function: ease-out;
-		transform: scale(1.1);
-	}
-
-}
-
+/* Animatie om de kleur te veranderen */
+/* Draai de kleur van het element 360 graden */
 @keyframes colorChange {
-	100% {
-		filter: hue-rotate(360deg);
-	}
+    100% {
+        filter: hue-rotate(360deg);
+    }
 }
 
-@keyframes silenceWave {
 
-0% {
-	transform: translateX(0px);
-}
-100% {
-	transform: translateX(-200px);
-}
+h1:hover span {
+    animation: var(--pulse-animation), var(--color-animation);
+
+    transition: 2s;
 }
 
-@keyframes getWavy {
-	0% {
-		width: 600%;
-	}
 
-	25% {
-		width: 1500%;
-	}
-
-	50% {
-		width: 600%;
-	}
-
-	100% {
-		width: 2500%;
-	}
+/* Animatie om de tekst van de h1 tag te laten stuiteren */
+@keyframes bouncy {
+    100% {
+        transform: translatey(-1em);
+    }
 }
 
-@keyframes fallDown {
-	0% {
-		transform: skew(0deg) rotateX(0deg);
-		opacity: 1;
-	}
 
-	70% {
-		transform: skew(-0.04turn, 4deg) rotateX(-90deg);
-		opacity: 0.7;
-	}
+h1::before {
+    animation: var(--bouncy-animation);
+    animation-delay: 0s;
+}
 
-	100% {
-		transform: skew(-0.06turn, 5deg) rotateX(-90deg);
-		opacity: 0;
-	}
- } 
+
+h1::after {
+    animation: var(--bouncy-animation);
+    animation-delay: 0.15s;
+}
+
+
+/* MEDIA QUERY */
+
+/* Past de stijl van de h1 aan op schermen kleiner dan 600 pixels breed. */
+@media (max-width: 600px) {
+    h1 {
+        font-size: 8vw;
+    }
+
+    h1::before {
+        height: 3vh;
+        width: 3vh;
+    }
+
+    h1::after {
+        height: 3vh;
+        width: 3vh;
+    }
+}
