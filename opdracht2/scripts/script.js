@@ -2,52 +2,34 @@
 
 // VARIABELEN
 const ulEl = document.querySelector("main ul");
+console.log(ulEl);
+
 const aantalNummers = 75;
+console.log(aantalNummers);
 
 let huidigeIndex = 0;
+console.log(huidigeIndex);
 
-const buttonEl1 = document.querySelector("main section button:first-of-type");
-const buttonEl2 = document.querySelector("main section button:nth-of-type(2)");
-const buttonEl3 = document.querySelector("main section button:last-of-type");
+const buttonEl = document.querySelector("main button");
+
+const bal1 = document.querySelector("main ol li");
+console.log(bal1);
 
 
-
-// const timeLimit = 1000;
-
-// let timer;
-// let isAnimating = false;
-
-// buttonEl2.addEventListener('click', function() {
-//   if (isAnimating) {
-//     return;
-//   }
-
-//   clearTimeout(timer);
-
-//   buttonEl2.classList.add('shake-animation');
-//   isAnimating = true;
-
-//   timer = setTimeout(stopAnimation, timeLimit);
-// });
-
-// function stopAnimation() {
-//   buttonEl2.classList.remove('shake-animation');
-//   isAnimating = false;
-// }
 
 // Voeg een event listener toe voor het klikken op het knopelement
-buttonEl1.addEventListener("click", function () {
+buttonEl.addEventListener("click", function () {
   // Verwijder de 'rotate-animation'-klasse
-  buttonEl1.classList.remove("rotate-animation");
-  buttonEl2.classList.remove("roll-in-animation");
+  buttonEl.classList.remove("rotate-animation");
+  bal1.classList.remove("roll-in-animation");
 
   // Forceer een herberekening van de DOM
-  void buttonEl1.offsetWidth;
-  void buttonEl2.offsetWidth;
+  void buttonEl.offsetWidth;
+  void bal1.offsetWidth;
 
   // Voeg de 'rotate-animation'-klasse weer toe
-  buttonEl1.classList.add("rotate-animation");
-  buttonEl2.classList.add("roll-in-animation");
+  buttonEl.classList.add("rotate-animation");
+  bal1.classList.add("roll-in-animation");
 });
 // ^ Bron: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/void
 
@@ -206,7 +188,6 @@ RadioInputEl3.addEventListener("click", function () {
   });
 });
 
-
 function rolNummer() {
   const volgendGetal = geshuffeldeBallen[huidigeIndex];
 
@@ -214,19 +195,16 @@ function rolNummer() {
         ${volgendGetal}
   `;
 
-  buttonEl2.innerHTML = balElement;
+  bal1.innerHTML = balElement;
 
   huidigeIndex++;
 
   if (huidigeIndex === geshuffeldeBallen.length) {
-    buttonEl1.removeEventListener("click", rolNummer);
+    buttonEl.removeEventListener("click", rolNummer);
   }
 }
 
-buttonEl1.addEventListener("click", rolNummer);
-
-
-
+buttonEl.addEventListener("click", rolNummer);
 
 document.addEventListener("keydown", (event) => {
   if (event.key === "1") {
@@ -237,3 +215,20 @@ document.addEventListener("keydown", (event) => {
     RadioInputEl3.checked = true;
   }
 });
+
+
+
+// // Generate confetti particles
+// function generateConfetti() {
+//   for (let i = 0; i < 100; i++) {
+//     const confetti = document.createElement("div");
+//     confetti.classList.add("confetti");
+//     confetti.style.left = Math.random() * window.innerWidth + "px";
+//     confetti.style.animationDelay = Math.random() * 5 + "s";
+//     document.body.appendChild(confetti);
+//   }
+// }
+
+// // Call generateConfetti() when the player wins the bingo
+// generateConfetti();
+// // ^ Bron: https://github.com/mathieudutour/confetti.js

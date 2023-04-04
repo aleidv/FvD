@@ -2,6 +2,7 @@
 
 
 /* FONTS */
+
 @font-face {
     font-family: 'sacramento';
     src: url('../fonts/sacramento.ttf') format('truetype');
@@ -35,33 +36,30 @@
 }
 
 
-
 /* CSS REMEDY */
-/* past de box-sizing toe op alle elementen */
+
+/* Zorg ervoor dat alle elementen het box-sizing model gebruiken */
 *,
 *::after,
 *::before {
     box-sizing: border-box;
 }
 
-/*  definieert de cursorstijl */
 button:not[disabled],
 summary {
     cursor: pointer;
 }
 
 
-
 /* CUSTOM PROPERTIES */
-/* definieert aangepaste eigenschappen in de :root selector */
+
 :root {
     --text-color: #fff;
     --background-color: #000;
-    /* --color-bal: #dffe13; */
 }
 
-/* wordt gebruikt om alle elementen op de webpagina te selecteren */
-/* zorgt ervoor dat variabelen binnen variabelen kunnen worden aangepast */
+/* * Wordt gebruikt om alle elementen op de webpagina te selecteren */
+/* Zorgt ervoor dat variabelen binnen variabelen kunnen worden aangepast */
 * {
     --glow: 0 0em .3em white,
         0 0em .4em var(--glow-color),
@@ -72,23 +70,14 @@ summary {
 }
 
 
-
 /* DARK MODE */
+
+/* Dark mode media query */
 @media (prefers-color-scheme:dark) {
     :root {
         --background-color: #dfdfdf;
         --color-bal: #151c36;
     }
-
-    /* waarom werkt dit niet? */
-    /* main button {
-		box-shadow: var(--glow);
-		--glow-color: #151c3677;
-	} */
-
-    /* ul li {
-		background-color: white;
-	} */
 
     h2 {
         color: #3e3e3e;
@@ -96,9 +85,6 @@ summary {
 }
 
 
-
-
-/* STRUCTUUR & STYLING BODY */
 body {
     display: flex;
     justify-content: center;
@@ -109,18 +95,19 @@ body {
     /* cursor: */
 }
 
-/* als er bingo is geroepen */
+
+/* Als er bingo is geroepen */
 body.bingo {
     background-color: aquamarine;
 }
 
 
-/* KEUZE IN KLEUR KAART */
+/* Keuze in kleur kaart */
 body>section {
     display: flex;
     flex-direction: column;
     gap: 2em;
-    /* order is een CSS flexbox property die gebruikt wordt om de volgorde van de flexbox items aan te passen zonder de HTML structuur te wijzigen. Een hogere waarde van order zorgt ervoor dat een flexbox item verder naar het einde van de flex container wordt verplaatst.  */
+    /* wordt gebruikt om de volgorde van de flexbox items aan te passen zonder de HTML structuur te wijzigen. Hoe hoger hoe verder naar het einde. */
     order: 2;
     padding: 10em 2em 0em 5em;
 }
@@ -153,28 +140,7 @@ body>section input:last-of-type {
     --glow-color: #bc13fe;
 }
 
-.blauwe-kaart {
-    --glow-color: rgb(19, 39, 254, 0.3);
-}
 
-.gele-kaart {
-    --glow-color: rgb(223, 254, 19, 0.3);
-}
-
-.gele-kaart label {
-	color: #ffffff;
-}
-
-.paarse-kaart {
-    --glow-color: rgb(188, 19, 254, 0.3);
-}
-
-.paarse-kaart label {
-	color: #dffe13;
-}
-
-
-/* STRUCTUUR & STYLING MAIN */
 main {
     display: flex;
     flex-direction: column;
@@ -188,6 +154,7 @@ main {
     padding-right: 5em;
 }
 
+
 main h1 {
     font-family: 'sacramento', sans-serif;
     font-size: 5em;
@@ -200,11 +167,6 @@ main h1 {
     --glow-color: #bc13fe;
 }
 
-
-h1:hover {
-    animation: neon-glow 0.8s ease-in-out infinite alternate;
-}
-
 @keyframes neon-glow {
     from {
         text-shadow: 0 0 0.1em #fff, 0 0 0.2em #fff, 0 0 0.3em #fff, 0 0 0.4em #bc13fe, 0 0 0.7em #bc13fe, 0 0 0.8em #bc13fe, 0 0 1em #bc13fe, 0 0 1.5em #bc13fe;
@@ -214,6 +176,11 @@ h1:hover {
         text-shadow: 0 0 0.2em #fff, 0 0 0.3em #fff, 0 0 0.4em #fff, 0 0 0.7em #bc13fe, 0 0 0.8em #bc13fe, 0 0 1em #bc13fe, 0 0 1.5em #bc13fe, 0 0 2em #bc13fe;
     }
 }
+
+h1:hover {
+    animation: neon-glow 0.8s ease-in-out infinite alternate;
+}
+
 
 main h2 {
     font-family: 'texgyreadventor_regular', sans-serif;
@@ -226,29 +193,21 @@ main h2 {
     z-index: 200;
 }
 
-main section {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
 
-}
-
-
-/* ROL EEN BAL + GEROLDE BALLEN */
-main section button {
-    font-family: 'texgyreadventor_bold', sans-serif;
-
-    font-size: 1.2em;
-    color: #3e3e3e;
-
-    letter-spacing: .1em;
-    text-transform: uppercase;
-
+/* ballen rollen */
+main button {
     margin: 2em;
     padding: 0em;
 
     width: 5em;
     height: 5em;
+
+    font-family: 'texgyreadventor_bold', sans-serif;
+    font-size: 1.2em;
+    color: #3e3e3e;
+
+    letter-spacing: .1em;
+    text-transform: uppercase;
 
     background-color: #dffe13;
 
@@ -261,7 +220,7 @@ main section button {
     --glow-color: #dffe1377;
 }
 
-main section button:first-of-type:hover {
+main button:hover {
     box-shadow: 0 0em .25em white,
         0 0em 1em white,
         0 0em 4.5em var(--glow-color),
@@ -271,7 +230,25 @@ main section button:first-of-type:hover {
 }
 
 
+/* Animatie die de button na een klik laat draaien */
+@keyframes rotate {
+    0% {
+        transform: rotate(0);
+    }
+
+    100% {
+        transform: rotate(-360deg);
+    }
+}
+
+main button.rotate-animation {
+    animation: rotate 0.6s ease-in-out both;
+}
+
+
 /* MEDIA QUERY */
+
+/* Past de stijl van de h1 aan op schermen kleiner dan 600 pixels breed. */
 @media only screen and (max-width: 500px) {
     body {
         flex-direction: column;
@@ -291,27 +268,38 @@ main section button:first-of-type:hover {
 }
 
 
-/* main section button:nth-of-type(2).shake-animation {
-	animation: shake-horizontal 0.4s cubic-bezier(0.455, 0.030, 0.515, 0.955) 4s both;
-} */
+main ol {
+    margin: 0;
+    padding: 0;
+    font-family: 'texgyreadventor_bold', sans-serif;
+    list-style: none;
 
-/* ANIMATIES */
-main section button:first-of-type.rotate-animation {
-    animation: rotate 0.6s ease-in-out both;
+    font-size: 1.2em;
+    color: #3e3e3e;
+
+    letter-spacing: .1em;
+    text-transform: uppercase;
 }
 
-main section button:nth-of-type(2).roll-in-animation {
-    animation: rollIn 2s ease-in-out forwards;
-}
 
-main section button:nth-of-type(2).roll-out-animation {
-    animation: rollOut 2s ease-in-out forwards;
-}
+main ol li {
+    display: flex;
+    justify-content: center;
+    align-items: center;
 
-main section button:nth-of-type(2) {
     position: absolute;
-    left: -50%;
     /* startpositie */
+    left: -50%;
+    top: 12.15em;
+
+    margin: 2em;
+    padding: 0em;
+
+    width: 5em;
+    height: 5em;
+
+    border: none;
+    border-radius: 50%;
 
     background-color: #2efe13;
 
@@ -321,6 +309,16 @@ main section button:nth-of-type(2) {
     --glow-color: #4efe1377;
 }
 
+
+@keyframes rollOut {
+    0% {
+        left: 60%;
+    }
+
+    100% {
+        left: -50%;
+    }
+}
 
 @keyframes rollIn {
     0% {
@@ -333,100 +331,16 @@ main section button:nth-of-type(2) {
     }
 }
 
-
-/* !!!!!!!! */
-@keyframes rollOut {
-    0% {
-        left: 60%;
-    }
-
-    100% {
-        left: -50%;
-    }
+main ol li.roll-in-animation {
+    animation: rollIn 2s ease-in-out forwards;
 }
 
-
-main section button:last-of-type {
-    display: none;
-}
-
+/* main ol li.roll-out-animation {
+    animation: rollOut 2s ease-in-out forwards;
+} */
 
 
-/* animation rotate-center */
-@keyframes rotate {
-    0% {
-        transform: rotate(0);
-    }
-
-    100% {
-        transform: rotate(-360deg);
-    }
-}
-
-/* ^ Bron: https://animista.net/play/attention/shake */
-
-
-/* animation shake-horizontal */
-@keyframes shake-horizontal {
-
-    0%,
-    100% {
-        transform: translateX(0);
-    }
-
-    10%,
-    30%,
-    50%,
-    70% {
-        transform: translateX(-10px);
-    }
-
-    20%,
-    40%,
-    60% {
-        transform: translateX(10px);
-    }
-
-    80% {
-        transform: translateX(8px);
-    }
-
-    90% {
-        transform: translateX(-8px);
-    }
-}
-
-/* ^ Bron: https://animista.net/play/attention/shake */
-
-
-/* animation vibrate */
-@keyframes vibrate {
-    0% {
-        transform: translate(0);
-    }
-
-    20% {
-        transform: translate(-2px, 2px);
-    }
-
-    40% {
-        transform: translate(-2px, -2px);
-    }
-
-    60% {
-        transform: translate(2px, 2px);
-    }
-
-    80% {
-        transform: translate(2px, -2px);
-    }
-
-    100% {
-        transform: translate(0);
-    }
-}
-
-
+/* bingo kaart */
 main ul {
     display: grid;
     grid-auto-flow: column;
@@ -463,6 +377,27 @@ main ul li {
 }
 
 
+.blauwe-kaart {
+    --glow-color: rgb(19, 39, 254, 0.3);
+}
+
+.gele-kaart {
+    --glow-color: rgb(223, 254, 19, 0.3);
+}
+
+.gele-kaart label {
+	color: #ffffff;
+}
+
+.paarse-kaart {
+    --glow-color: rgb(188, 19, 254, 0.3);
+}
+
+.paarse-kaart label {
+	color: #dffe13;
+}
+
+
 main ul li input {
     position: relative;
 
@@ -476,6 +411,7 @@ main ul li input {
 
     z-index: 100;
 }
+
 
 main ul li input::before {
     content: "";
@@ -492,9 +428,11 @@ main ul li input::before {
     /* ^ Bron: https://bennettfeely.com/clippy/ */
 }
 
+
 main ul li input:checked::before {
     opacity: 0.6;
 }
+
 
 main ul li label {
     display: flex;
@@ -511,3 +449,20 @@ main ul li label {
     top: 0;
     left: 0;
 }
+
+
+
+/* Confetti annimatie */
+/* @keyframes confetti {
+    0% { transform: translateY(0); }
+    100% { transform: translateY(-1000px) rotate(360deg); }
+}
+  
+.confetti {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    background-color: #f0e;
+    animation: confetti 5s ease-out infinite;
+} */
+/* ^ Bron: https://github.com/mathieudutour/confetti.js */
