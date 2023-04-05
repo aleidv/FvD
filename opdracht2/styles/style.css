@@ -223,6 +223,10 @@ main button:hover {
     transition: .2s;
 }
 
+main button:active {
+    transform: translateY(5px);
+}
+
 /* button:focus {
     transform: translateY(1px);
     box-shadow: 0 0em .3em white,
