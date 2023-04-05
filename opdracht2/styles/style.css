@@ -54,8 +54,10 @@ summary {
 /* CUSTOM PROPERTIES */
 
 :root {
-    --text-color: #fff;
-    --background-color: #000;
+    --dark-mode-color: #444;
+
+    /* minimale waarde, ideale waarde (3% van viewport grootte), maximale waarde */
+    --white-space: clamp(.5em, 3vmin, 2em);
 }
 
 /* * Wordt gebruikt om alle elementen op de webpagina te selecteren */
@@ -69,29 +71,16 @@ summary {
         0 0em 15em var(--glow-color);
 }
 
-
-/* DARK MODE */
-
-/* Dark mode media query */
-@media (prefers-color-scheme:dark) {
-    :root {
-        --background-color: #dfdfdf;
-        --color-bal: #151c36;
-    }
-
-    h2 {
-        color: #3e3e3e;
-    }
-}
-
-
 body {
+    margin: 0;
+
     display: flex;
     justify-content: center;
     align-items: center;
 
-    background-color: var(--background-color);
-    color: var(--text-color);
+    background-color: #000;
+    color: white;
+
     cursor: auto;
 }
 
@@ -100,16 +89,18 @@ body {
 body>section {
     display: flex;
     flex-direction: column;
-    gap: 2em;
+    gap: 1em;
     /* wordt gebruikt om de volgorde van de flexbox items aan te passen zonder de HTML structuur te wijzigen. Hoe hoger hoe verder naar het einde. */
     order: 2;
-    padding: 10em 2em 0em 5em;
+
+    /* minimale waarde, ideale waarde (3% van viewport grootte), maximale waarde */
+    margin-top: 10em;
 }
 
 body>section input {
     appearance: none;
-    width: 3em;
-    height: 3em;
+    width: clamp(2em, 6vw, 3em);
+    height: clamp(2em, 6vw, 3em);
 
     border-radius: 5px;
 }
@@ -143,15 +134,17 @@ main {
 
     order: 3;
 
-    margin: auto;
-    margin-top: 3em;
-    padding-right: 5em;
+    margin: var(--white-space);
+    padding: var(--white-space);
+
 }
 
 
 main h1 {
     font-family: 'sacramento', sans-serif;
-    font-size: 5em;
+
+    /* minimale waarde, ideale waarde (15% van viewport grootte), maximale waarde */
+    font-size: clamp(2em, 15vmin, 5em);
 
     text-align: center;
 
@@ -180,22 +173,23 @@ h1:hover {
 main h2 {
     font-family: 'texgyreadventor_regular', sans-serif;
 
-    font-size: 1.25em;
-    letter-spacing: .04em;
+    /* minimale waarde, ideale waarde (15% van viewport grootte), maximale waarde */
+    font-size: clamp(0.8em, 2.6vmin, 1.2em);
 
-    margin-top: 1;
+    letter-spacing: .04em;
+    text-align: center;
 }
 
 /* ballen rollen */
 main button {
-    margin: 2em;
-    padding: 0em;
+    margin: var(--white-space);
 
-    width: 5em;
-    height: 5em;
+    /* minimale waarde, ideale waarde (15% van viewport grootte), maximale waarde */
+    width: clamp(4.5em, 10vw, 4.5em);
+    height: clamp(4.5em, 10vw, 4.5em);
 
     font-family: 'texgyreadventor_bold', sans-serif;
-    font-size: 1.2em;
+    font-size: clamp(0.8em, 2.6vmin, 1.2em);
     color: #3e3e3e;
 
     letter-spacing: .1em;
@@ -227,16 +221,6 @@ main button:active {
     transform: translateY(5px);
 }
 
-/* button:focus {
-    transform: translateY(1px);
-    box-shadow: 0 0em .3em white,
-        0 0em 7.5em var(--glow-color),
-        0 0em 8em var(--glow-color);
-    --glow-color: #1327fe;
-    outline: #2efe13 solid 5px;
-    border-radius: 50%;
-} */
-
 
 /* Animatie die de button na een klik laat draaien */
 @keyframes rotate {
@@ -251,28 +235,6 @@ main button:active {
 
 main button.rotate-animation {
     animation: rotate 0.6s ease-in-out both;
-}
-
-
-/* MEDIA QUERY */
-
-/* Past de stijl van de h1 aan op schermen kleiner dan 600 pixels breed. */
-@media only screen and (max-width: 600px) {
-    body {
-        flex-direction: column;
-    }
-
-    body>section {
-
-        flex-direction: row;
-        gap: 2em;
-        padding: 2em 0em 2em 0em;
-    }
-
-    main {
-        margin-top: 2em;
-        padding: 0 2em;
-    }
 }
 
 
@@ -295,16 +257,18 @@ main ol li {
     justify-content: center;
     align-items: center;
 
-    position: absolute;
     /* startpositie */
+    /* position: relative;
     left: -50%;
-    top: 12.15em;
+    top: 12.15em; */
 
-    margin: 2em;
-    padding: 0em;
+    /* transform: translate(-40em); */
 
-    width: 5em;
-    height: 5em;
+    margin-top: var(--white-space);
+
+    /* minimale waarde, ideale waarde (15% van viewport grootte), maximale waarde */
+    width: clamp(4.5em, 10vw, 5em);
+    height: clamp(4.5em, 10vw, 5em);
 
     border: none;
     border-radius: 50%;
@@ -363,7 +327,7 @@ main ul {
 
     list-style-type: none;
 
-    background-color: transparent;
+    /* background-color: red; */
 
     border-radius: 20px;
 }
@@ -384,24 +348,24 @@ main ul li {
 }
 
 
-.blauwe-kaart {
+.blauwe-kaart li {
     --glow-color: rgb(19, 39, 254, 0.3);
 }
 
-.gele-kaart {
+.gele-kaart li {
     --glow-color: rgb(223, 254, 19, 0.3);
 }
 
 .gele-kaart label {
-	color: #ffffff;
+    color: #ffffff;
 }
 
-.paarse-kaart {
+.paarse-kaart li {
     --glow-color: rgb(188, 19, 254, 0.3);
 }
 
 .paarse-kaart label {
-	color: #dffe13;
+    color: #dffe13;
 }
 
 
@@ -467,13 +431,44 @@ main ul li label {
 }
 
 
+/* MEDIA QUERY */
+
+/* Past de stijl van de h1 aan op schermen kleiner dan 600 pixels breed. */
+@media only screen and (max-width: 600px) {
+    body {
+        flex-direction: column;
+    }
+
+    body>section {
+        flex-direction: row;
+        margin-top: 1.5em;
+        gap: .5em;
+    }
+
+    main {
+        margin-top: 2em;
+        padding: 0 2em;
+    }
+
+    main button {
+        order: 100;
+        width: clamp(6em, 8vw, 7em);
+        height: clamp(6em, 8vw, 7em);
+    }
+}
+
 
 /* Confetti annimatie */
 @keyframes confetti {
-    0% { transform: translateY(0); }
-    100% { transform: translateY(-1000px) rotate(360deg); }
+    0% {
+        transform: translateY(0);
+    }
+
+    100% {
+        transform: translateY(-1000px) rotate(360deg);
+    }
 }
-  
+
 .confetti {
     position: absolute;
     bottom: -4em;
@@ -482,4 +477,78 @@ main ul li label {
     background-color: #f0e;
     animation: confetti 5s ease-out infinite;
 }
-/* ^ Bron: https://github.com/mathieudutour/confetti.js
+
+/* ^ Bron: https://github.com/mathieudutour/confetti.js */
+
+
+/* DARK MODE */
+
+/* Dark mode media query */
+@media (prefers-color-scheme:dark) {
+
+    * {
+        --glow: 0 0em .3em white,
+            0 0em .4em var(--dark-mode-color),
+            0 0em .5em var(--dark-mode-color),
+            0 0em .6em var(--dark-mode-color),
+            0 0em 7.5em var(--dark-mode-color),
+            0 0em 15em var(--dark-mode-color);
+    }
+
+    @keyframes neon-glow {
+        from {
+            text-shadow: 0 0 0.1em #fff, 0 0 0.2em #fff, 0 0 0.3em #fff, 0 0 0.4em var(--dark-mode-color), 0 0 0.7em var(--dark-mode-color), 0 0 0.8em var(--dark-mode-color), 0 0 1em var(--dark-mode-color), 0 0 1.5em var(--dark-mode-color);
+        }
+
+        to {
+            text-shadow: 0 0 0.2em #fff, 0 0 0.3em #fff, 0 0 0.4em #fff, 0 0 0.7em var(--dark-mode-color), 0 0 0.8em var(--dark-mode-color), 0 0 1em var(--dark-mode-color), 0 0 1.5em var(--dark-mode-color), 0 0 2em var(--dark-mode-color);
+        }
+    }
+
+    main button:hover {
+        box-shadow: 0 0em .25em white,
+            0 0em 1em white,
+            0 0em 4.5em var(--dark-mode-color),
+            0 0em 7.5em var(--dark-mode-color);
+
+        transition: .2s;
+    }
+
+    main button {
+        box-shadow: 0 0em .3em white,
+            0 0em 7.5em var(--dark-mode-color),
+            0 0em 8em var(--dark-mode-color);
+
+        color: white;
+
+        background-color: var(--dark-mode-color);
+    }
+
+    main ol li {
+        box-shadow: 0 0em .3em white,
+            0 0em 7.5em var(--dark-mode-color),
+            0 0em 8em var(--dark-mode-color);
+
+        background-color: var(--dark-mode-color);
+    }
+
+    main ul li input {
+        filter: drop-shadow(0em 0em .8em var(--dark-mode-color));
+    }
+
+    main ul li input::before {
+        background-color: var(--dark-mode-color);
+    }
+
+    main ul li label {
+        color: var(--dark-mode-color)
+    }
+
+    .gele-kaart label {
+        color: var(--dark-mode-color);
+    }
+
+    .paarse-kaart label {
+        color: var(--dark-mode-color);
+    }
+}
