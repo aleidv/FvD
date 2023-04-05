@@ -22,7 +22,7 @@
 @font-face {
     font-family: 'texgyreadventor_regular';
     src: url('../fonts/texgyreadventor-regular.otf') format('truetype');
-    /* ^ Bron: https://fonts.google.com/specimen/Poppins */
+    /* ^ Bron: https://www.1001fonts.com/tex-gyre-adventor-font.html */
     font-weight: normal;
     font-style: normal;
 }
@@ -30,7 +30,7 @@
 @font-face {
     font-family: 'texgyreadventor_bold';
     src: url('../fonts/texgyreadventor-bold.otf') format('truetype');
-    /* ^ Bron: https://fonts.google.com/specimen/Poppins */
+    /* ^ Bron: https://www.1001fonts.com/tex-gyre-adventor-font.html */
     font-weight: normal;
     font-style: normal;
 }
@@ -92,13 +92,7 @@ body {
 
     background-color: var(--background-color);
     color: var(--text-color);
-    /* cursor: */
-}
-
-
-/* Als er bingo is geroepen */
-body.bingo {
-    background-color: aquamarine;
+    cursor: auto;
 }
 
 
@@ -167,6 +161,7 @@ main h1 {
     --glow-color: #bc13fe;
 }
 
+/* Animatie die de h1 laat glowen */
 @keyframes neon-glow {
     from {
         text-shadow: 0 0 0.1em #fff, 0 0 0.2em #fff, 0 0 0.3em #fff, 0 0 0.4em #bc13fe, 0 0 0.7em #bc13fe, 0 0 0.8em #bc13fe, 0 0 1em #bc13fe, 0 0 1.5em #bc13fe;
@@ -189,10 +184,7 @@ main h2 {
     letter-spacing: .04em;
 
     margin-top: 1;
-
-    z-index: 200;
 }
-
 
 /* ballen rollen */
 main button {
@@ -218,6 +210,8 @@ main button {
         0 0em 7.5em var(--glow-color),
         0 0em 8em var(--glow-color);
     --glow-color: #dffe1377;
+
+    z-index: 200;
 }
 
 main button:hover {
@@ -228,6 +222,16 @@ main button:hover {
 
     transition: .2s;
 }
+
+/* button:focus {
+    transform: translateY(1px);
+    box-shadow: 0 0em .3em white,
+        0 0em 7.5em var(--glow-color),
+        0 0em 8em var(--glow-color);
+    --glow-color: #1327fe;
+    outline: #2efe13 solid 5px;
+    border-radius: 50%;
+} */
 
 
 /* Animatie die de button na een klik laat draaien */
@@ -249,7 +253,7 @@ main button.rotate-animation {
 /* MEDIA QUERY */
 
 /* Past de stijl van de h1 aan op schermen kleiner dan 600 pixels breed. */
-@media only screen and (max-width: 500px) {
+@media only screen and (max-width: 600px) {
     body {
         flex-direction: column;
     }
@@ -309,17 +313,6 @@ main ol li {
     --glow-color: #4efe1377;
 }
 
-
-@keyframes rollOut {
-    0% {
-        left: 60%;
-    }
-
-    100% {
-        left: -50%;
-    }
-}
-
 @keyframes rollIn {
     0% {
         left: 110%;
@@ -335,9 +328,19 @@ main ol li.roll-in-animation {
     animation: rollIn 2s ease-in-out forwards;
 }
 
-/* main ol li.roll-out-animation {
+@keyframes rollOut {
+    0% {
+        left: 60%;
+    }
+
+    100% {
+        left: -50%;
+    }
+}
+
+main ol li.roll-out-animation {
     animation: rollOut 2s ease-in-out forwards;
-} */
+}
 
 
 /* bingo kaart */
@@ -412,6 +415,11 @@ main ul li input {
     z-index: 100;
 }
 
+/* main ul li input:focus {
+    border: #2efe13 solid 5px;
+    border-radius: 5px;
+} */
+
 
 main ul li input::before {
     content: "";
@@ -420,18 +428,22 @@ main ul li input::before {
     width: 100%;
     height: 100%;
 
-    background-color: white;
+    background-color: #ff69b4;
 
     opacity: 0;
 
     clip-path: polygon(50% 4%, 61% 35%, 95% 36%, 68% 57%, 81% 94%, 50% 70%, 19% 94%, 32% 57%, 4% 37%, 39% 35%);
     /* ^ Bron: https://bennettfeely.com/clippy/ */
+
+    transition: 0.5s ease-in-out;
 }
 
 
 main ul li input:checked::before {
     opacity: 0.6;
 }
+
+
 
 
 main ul li label {
@@ -453,16 +465,17 @@ main ul li label {
 
 
 /* Confetti annimatie */
-/* @keyframes confetti {
+@keyframes confetti {
     0% { transform: translateY(0); }
     100% { transform: translateY(-1000px) rotate(360deg); }
 }
   
 .confetti {
     position: absolute;
+    bottom: -4em;
     width: 10px;
     height: 10px;
     background-color: #f0e;
     animation: confetti 5s ease-out infinite;
-} */
-/* ^ Bron: https://github.com/mathieudutour/confetti.js */
+}
+/* ^ Bron: https://github.com/mathieudutour/confetti.js

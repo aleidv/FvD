@@ -17,6 +17,15 @@ Nb. Door *open* toe te voegen aan een *details* element kun je deze standaard op
   1. https://www.fontspace.com/abeatbykai-font-f11363
   2. https://codepen.io/shooft/pen/gOdbPKV
   3. https://tobiasahlin.com/blog/layered-smooth-box-shadows/
+  4. https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/void
+  5. https://www.w3schools.com/js/js_arrays.asp
+  6. https://www.1001fonts.com/tex-gyre-adventor-font.html
+  7. https://fonts.google.com/specimen/Sacramento
+  8. https://fonts.google.com/specimen/Poppins
+  9. https://bennettfeely.com/clippy/
+  10.https://github.com/mathieudutour/confetti.js
+  11.https://codepen.io/shooft/pen/yLxzgzP
+
 
 
 
