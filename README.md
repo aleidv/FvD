@@ -27,7 +27,7 @@ Nb. Door *open* toe te voegen aan een *details* element kun je deze standaard op
 
 
   ### Je storyboard:
-  <img src="readme-images/storyboard.png" width="375px" alt="storyboard voor opdracht 1">
+  <img src="readme-images/plan_opdr_1.png" width="375px" alt="storyboard voor opdracht 1">
 
 
   ### Je ambitie: 
@@ -84,15 +84,17 @@ Nb. Door *open* toe te voegen aan een *details* element kun je deze standaard op
 
 
   ### Je ontwerp:
-  <img src="readme-images/dummy-plaatje.svg" width="375px" alt="ontwerp opdracht 2">
+  <img src="readme-images/plan_opdr_2.png" width="375px" alt="ontwerp opdracht 2">
 
 
   ### Je ambitie: 
   Aan deze technieken/punten wil ik werken:
-  - punt 1
-  - punt 2
-  - nog een punt
-  - ...
+  - Javascript in geheel
+  - De pagina toegankelijk maken met toetsenbord bediening
+  - Media queries voor responsiveness
+  - Speech API
+  - JS transities
+
 </details>
 
 
