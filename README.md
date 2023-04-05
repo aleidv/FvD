@@ -145,17 +145,27 @@ Nb. Door *open* toe te voegen aan een *details* element kun je deze standaard op
   <summary>uitwerken bij afronden opdracht (voor week 8)</summary>
 
   ### Je uitkomst - karakteristiek screenshot(s):
-  <img src="readme-images/dummy-plaatje.svg" width="375px" alt="uitkomst opdracht 2">
+  <img src="readme-images/bingo.png" width="375px" alt="uitomst opdracht 2">
 
 
   ### Dit ging goed/Heb ik geleerd: 
   Korte omschrijving met plaatje(s)
 
-  <img src="readme-images/dummy-plaatje.svg" width="375px" alt="top">
+  > bingo kaart gemaakt
+  > speach api
+  > confetti
+  > button animatie
+
+  <img src="readme-images/bingo_gelukt_1.png" width="375px" alt="uitomst opdracht 2">
 
 
   ### Dit was lastig/Is niet gelukt:
   Korte omschrijving met plaatje(s)
 
-  <img src="readme-images/dummy-plaatje.svg" width="375px" alt="bummer">
+  > de eerste keer na klikken de bal doorzichtig maken
+  > fiche er op laten vallen
+
+  <img src="readme-images/bingo_niet_gelukt_1.png" width="375px" alt="uitomst opdracht 2">
+  <img src="readme-images/bingo_niet_gelukt_2.png" width="375px" alt="uitomst opdracht 2">
+
 </details>
