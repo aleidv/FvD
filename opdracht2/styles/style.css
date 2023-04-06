@@ -54,14 +54,23 @@ summary {
 /* CUSTOM PROPERTIES */
 
 :root {
-    --dark-mode-color: #444;
+    /* --dark-mode-color: #444; */
+    --background-color: #000;
+    --dark-mode-box-shadow: 0 0em .25em white;
+
+    --color-button: #dffe13;
+    --color-bal: #2efe13;
+
+    --bingokaart-blauw: #1327fe4d;
+    --bingokaart-geel: #dffe134d;
+    --bingokaart-paars: #bc13fe4d;
 
     /* minimale waarde, ideale waarde (3% van viewport grootte), maximale waarde */
     --white-space: clamp(.5em, 3vmin, 2em);
 }
 
 /* * Wordt gebruikt om alle elementen op de webpagina te selecteren */
-/* Zorgt ervoor dat variabelen binnen variabelen kunnen worden aangepast */
+/* Deze code zorgt ervoor dat variabelen binnen variabelen kunnen worden aangepast */
 * {
     --glow: 0 0em .3em white,
         0 0em .4em var(--glow-color),
@@ -78,10 +87,10 @@ body {
     justify-content: center;
     align-items: center;
 
-    background-color: #000;
+    background-color: var(--background-color);
     color: white;
 
-    cursor: auto;
+    cursor: default;
 }
 
 
@@ -152,6 +161,7 @@ main h1 {
 
     text-shadow: var(--glow);
     --glow-color: #bc13fe;
+
 }
 
 /* Animatie die de h1 laat glowen */
@@ -195,7 +205,7 @@ main button {
     letter-spacing: .1em;
     text-transform: uppercase;
 
-    background-color: #dffe13;
+    background-color: var(--color-button);
 
     border: none;
     border-radius: 50%;
@@ -273,7 +283,7 @@ main ol li {
     border: none;
     border-radius: 50%;
 
-    background-color: #2efe13;
+    background-color: var(--color-bal);
 
     box-shadow: 0 0em .3em white,
         0 0em 7.5em var(--glow-color),
@@ -340,28 +350,28 @@ main ul li {
 
     border-radius: 20px;
     box-shadow: var(--glow);
-    --glow-color: #1327fe4c;
+    --glow-color: var(--bingokaart-blauw);
 }
 
 .thirteenth-item {
-    background-color: black;
+    background-color: transparent;
 }
 
 
 .blauwe-kaart li {
-    --glow-color: rgb(19, 39, 254, 0.3);
+    --glow-color: var(--bingokaart-blauw);
 }
 
 .gele-kaart li {
-    --glow-color: rgb(223, 254, 19, 0.3);
+    --glow-color: var(--bingokaart-geel);
 }
 
 .gele-kaart label {
-    color: #ffffff;
+    color: #fff;
 }
 
 .paarse-kaart li {
-    --glow-color: rgb(188, 19, 254, 0.3);
+    --glow-color: var(--bingokaart-paars);
 }
 
 .paarse-kaart label {
@@ -486,69 +496,44 @@ main ul li label {
 /* Dark mode media query */
 @media (prefers-color-scheme:dark) {
 
+    :root {
+        --background-color: #181818;
+
+        --color-button: #c1dd0e;
+        --color-bal: #20b80c;
+
+        --bingokaart-blauw: #1327fe;
+        --bingokaart-geel: #dffe13;
+        --bingokaart-paars: #bb13fe;
+    }
+
     * {
-        --glow: 0 0em .3em white,
-            0 0em .4em var(--dark-mode-color),
-            0 0em .5em var(--dark-mode-color),
-            0 0em .6em var(--dark-mode-color),
-            0 0em 7.5em var(--dark-mode-color),
-            0 0em 15em var(--dark-mode-color);
+        --glow: 
+        0 0em 0.1em var(--glow-color);
     }
 
-    @keyframes neon-glow {
-        from {
-            text-shadow: 0 0 0.1em #fff, 0 0 0.2em #fff, 0 0 0.3em #fff, 0 0 0.4em var(--dark-mode-color), 0 0 0.7em var(--dark-mode-color), 0 0 0.8em var(--dark-mode-color), 0 0 1em var(--dark-mode-color), 0 0 1.5em var(--dark-mode-color);
-        }
-
-        to {
-            text-shadow: 0 0 0.2em #fff, 0 0 0.3em #fff, 0 0 0.4em #fff, 0 0 0.7em var(--dark-mode-color), 0 0 0.8em var(--dark-mode-color), 0 0 1em var(--dark-mode-color), 0 0 1.5em var(--dark-mode-color), 0 0 2em var(--dark-mode-color);
-        }
+    h1:hover {
+        animation: none;
     }
-
+    
     main button:hover {
-        box-shadow: 0 0em .25em white,
-            0 0em 1em white,
-            0 0em 4.5em var(--dark-mode-color),
-            0 0em 7.5em var(--dark-mode-color);
-
-        transition: .2s;
+        box-shadow: var(--dark-mode-box-shadow)
     }
 
     main button {
-        box-shadow: 0 0em .3em white,
-            0 0em 7.5em var(--dark-mode-color),
-            0 0em 8em var(--dark-mode-color);
-
-        color: white;
-
-        background-color: var(--dark-mode-color);
+        box-shadow: var(--dark-mode-box-shadow)
     }
 
     main ol li {
-        box-shadow: 0 0em .3em white,
-            0 0em 7.5em var(--dark-mode-color),
-            0 0em 8em var(--dark-mode-color);
-
-        background-color: var(--dark-mode-color);
-    }
-
-    main ul li input {
-        filter: drop-shadow(0em 0em .8em var(--dark-mode-color));
-    }
-
-    main ul li input::before {
-        background-color: var(--dark-mode-color);
+        box-shadow: var(--dark-mode-box-shadow)
     }
 
     main ul li label {
-        color: var(--dark-mode-color)
+        color: white;
     }
-
-    .gele-kaart label {
-        color: var(--dark-mode-color);
-    }
-
+    
     .paarse-kaart label {
-        color: var(--dark-mode-color);
+        color: #fff;
     }
+
 }
