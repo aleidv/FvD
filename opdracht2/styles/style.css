@@ -95,7 +95,7 @@ body {
 
 
 /* Keuze in kleur kaart */
-body>section {
+body section {
     display: flex;
     flex-direction: column;
     gap: 1em;
@@ -106,7 +106,7 @@ body>section {
     margin-top: 10em;
 }
 
-body>section input {
+body section input {
     appearance: none;
     width: clamp(2em, 6vw, 3em);
     height: clamp(2em, 6vw, 3em);
@@ -114,22 +114,22 @@ body>section input {
     border-radius: 5px;
 }
 
-body>section input:checked {
+body section input:checked {
     background-color: transparent;
     border: 3px solid #fff;
 }
 
-body>section input:first-of-type {
+body section input:first-of-type {
     box-shadow: var(--glow);
     --glow-color: #1327fe;
 }
 
-body>section input:nth-of-type(2) {
+body section input:nth-of-type(2) {
     box-shadow: var(--glow);
     --glow-color: #dffe13;
 }
 
-body>section input:last-of-type {
+body section input:last-of-type {
     box-shadow: var(--glow);
     --glow-color: #bc13fe;
 }
@@ -190,8 +190,47 @@ main h2 {
     text-align: center;
 }
 
+main ol {
+    display: flex;
+    flex-direction: row;
+    gap: var(--white-space);
+    padding: 0;
+    margin: var(--white-space);
+}
+
+main ol li {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    margin-top: var(--white-space);
+
+    /* minimale waarde, ideale waarde (15% van viewport grootte), maximale waarde */
+    width: clamp(4.5em, 10vw, 5em);
+    height: clamp(4.5em, 10vw, 5em);
+
+    border: none;
+    border-radius: 50%;
+
+    background-color: #fff;
+
+    box-shadow: 0 0em .3em white,
+        0 0em 7.5em var(--glow-color),
+        0 0em 8em var(--glow-color);
+    --glow-color: #4efe1377;
+}
+
+main ol li:first-of-type, li:nth-of-type(4) {
+    background-color: transparent;
+    box-shadow: none;
+}
+
+main ol li:last-of-type {
+    display: none;
+}
+
 /* ballen rollen */
-main button {
+main>button {
     margin: var(--white-space);
 
     /* minimale waarde, ideale waarde (15% van viewport grootte), maximale waarde */
@@ -233,7 +272,7 @@ main button:active {
 
 
 /* Animatie die de button na een klik laat draaien */
-@keyframes rotate {
+/* @keyframes rotate {
     0% {
         transform: rotate(0);
     }
@@ -245,10 +284,10 @@ main button:active {
 
 main button.rotate-animation {
     animation: rotate 0.6s ease-in-out both;
-}
+} */
 
 
-main ol {
+/* main ol {
     margin: 0;
     padding: 0;
     font-family: 'texgyreadventor_bold', sans-serif;
@@ -259,13 +298,13 @@ main ol {
 
     letter-spacing: .1em;
     text-transform: uppercase;
-}
+} */
 
 
-main ol li {
+/* main ol li {
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: center; */
 
     /* startpositie */
     /* position: relative;
@@ -274,10 +313,10 @@ main ol li {
 
     /* transform: translate(-40em); */
 
-    margin-top: var(--white-space);
+    /* margin-top: var(--white-space); */
 
     /* minimale waarde, ideale waarde (15% van viewport grootte), maximale waarde */
-    width: clamp(4.5em, 10vw, 5em);
+    /* width: clamp(4.5em, 10vw, 5em);
     height: clamp(4.5em, 10vw, 5em);
 
     border: none;
@@ -289,24 +328,24 @@ main ol li {
         0 0em 7.5em var(--glow-color),
         0 0em 8em var(--glow-color);
     --glow-color: #4efe1377;
-}
+} */
 
-@keyframes rollIn {
+/* @keyframes rollIn {
     0% {
         left: 110%;
-    }
+    } */
 
     /* eindpositie */
-    100% {
+    /* 100% {
         left: 60%;
     }
-}
+} */
 
-main ol li.roll-in-animation {
+/* main ol li.roll-in-animation {
     animation: rollIn 2s ease-in-out forwards;
-}
+} */
 
-@keyframes rollOut {
+/* @keyframes rollOut {
     0% {
         left: 60%;
     }
@@ -314,15 +353,18 @@ main ol li.roll-in-animation {
     100% {
         left: -50%;
     }
-}
+} */
 
-main ol li.roll-out-animation {
+/* main ol li.roll-out-animation {
     animation: rollOut 2s ease-in-out forwards;
-}
+} */
 
+main ul li {
+    list-style-type: none;
+}
 
 /* bingo kaart */
-main ul {
+main ul:last-of-type {
     display: grid;
     grid-auto-flow: column;
     grid-template-columns: repeat(5, 1fr);
@@ -334,52 +376,47 @@ main ul {
 
     width: clamp(6em, 80vw, 30em);
     height: clamp(6em, 80vw, 30em);
-
-    list-style-type: none;
-
-    /* background-color: red; */
-
-    border-radius: 20px;
 }
 
 
-main ul li {
+main ul:last-of-type li {
     position: relative;
 
     background-color: transparent;
 
-    border-radius: 20px;
+    border-radius: 20%;
     box-shadow: var(--glow);
     --glow-color: var(--bingokaart-blauw);
 }
 
 .thirteenth-item {
     background-color: transparent;
+    font-family: 'sacramento', sans-serif;
+
 }
 
-
-.blauwe-kaart li {
+main ul:last-of-type.blauwe-kaart li {
     --glow-color: var(--bingokaart-blauw);
 }
 
-.gele-kaart li {
+main ul:last-of-type.gele-kaart li {
     --glow-color: var(--bingokaart-geel);
 }
 
-.gele-kaart label {
+main ul:last-of-type.gele-kaart label {
     color: #fff;
 }
 
-.paarse-kaart li {
+main ul:last-of-type.paarse-kaart li {
     --glow-color: var(--bingokaart-paars);
 }
 
-.paarse-kaart label {
+main ul:last-of-type.paarse-kaart label {
     color: #dffe13;
 }
 
 
-main ul li input {
+main ul:last-of-type li input {
     position: relative;
 
     margin: 0;
@@ -393,13 +430,13 @@ main ul li input {
     z-index: 100;
 }
 
-/* main ul li input:focus {
+/* main ul:last-of-type li input:focus {
     border: #2efe13 solid 5px;
     border-radius: 5px;
 } */
 
 
-main ul li input::before {
+main ul:last-of-type li input::before {
     content: "";
     display: inline-block;
 
@@ -417,21 +454,19 @@ main ul li input::before {
 }
 
 
-main ul li input:checked::before {
+main ul:last-of-type li input:checked::before {
     opacity: 0.6;
 }
 
 
-
-
-main ul li label {
+main ul:last-of-type li label {
     display: flex;
     position: absolute;
     justify-content: center;
     align-items: center;
 
     font-family: 'sacramento', sans-serif;
-    font-size: min(2em, 8vw);
+    font-size: clamp(0.5em, 4vmin, 2em);
     color: #bc13fe;
 
     width: 100%;
@@ -440,6 +475,13 @@ main ul li label {
     left: 0;
 }
 
+main ul:last-of-type .bingo-label {
+    transform: rotate(-40deg);
+    color: #dffe13;
+    text-shadow: var(--glow);
+    --glow-color: #dffe13;
+
+}
 
 /* MEDIA QUERY */
 
@@ -449,7 +491,7 @@ main ul li label {
         flex-direction: column;
     }
 
-    body>section {
+    body section {
         flex-direction: row;
         margin-top: 1.5em;
         gap: .5em;
@@ -524,11 +566,11 @@ main ul li label {
         box-shadow: var(--dark-mode-box-shadow)
     }
 
-    main ol li {
+    /* main ol li {
         box-shadow: var(--dark-mode-box-shadow)
-    }
+    } */
 
-    main ul li label {
+    main ul:last-of-type li label {
         color: white;
     }
     
