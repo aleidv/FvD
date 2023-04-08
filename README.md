@@ -23,8 +23,9 @@ Nb. Door *open* toe te voegen aan een *details* element kun je deze standaard op
   7. https://fonts.google.com/specimen/Sacramento
   8. https://fonts.google.com/specimen/Poppins
   9. https://bennettfeely.com/clippy/
-  10.https://github.com/mathieudutour/confetti.js
-  11.https://codepen.io/shooft/pen/yLxzgzP
+  10. https://github.com/mathieudutour/confetti.js
+  11. https://codepen.io/shooft/pen/yLxzgzP
+  12. https://developer.mozilla.org/en-US/docs/Web/API/Element/keydown_event
 
 
 
