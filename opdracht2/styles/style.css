@@ -54,11 +54,11 @@ summary {
 /* CUSTOM PROPERTIES */
 
 :root {
-    /* --dark-mode-color: #444; */
     --dark-mode-box-shadow: 0 0em .25em white;
 
     --color-button: #dffe13;
     --color-bal: #2efe13;
+    --color-getrokken-bal: #bc13fe;
 
     --bingokaart-blauw: #1327fe4d;
     --bingokaart-geel: #dffe134d;
@@ -129,6 +129,8 @@ body>section input {
     background-color: #000;
 
     border-radius: 5px;
+
+    cursor: pointer;
 }
 
 body>section input:checked {
@@ -203,7 +205,7 @@ main>ol {
 
     gap: var(--white-space);
 
-    margin: var(--white-space);
+    margin: 0;
     padding: 0;
 }
 
@@ -225,7 +227,7 @@ main>ol li {
 
     transform:translateX(100vw);
 
-    font-family: 'texgyreadventor_regular', sans-serif;
+    font-family: 'texgyreadventor_bold', sans-serif;
     color: #000;
 
     font-size: clamp(0.8em, 2.6vmin, 1.2em);
@@ -233,50 +235,13 @@ main>ol li {
     border: none;
     border-radius: 50%;
 
-    background-color: #fff;
+    background-color: var(--color-bal);
 
-    /* box-shadow: 0 0em .3em white,
+    box-shadow: 0 0em .3em white,
         0 0em 7.5em var(--glow-color),
         0 0em 8em var(--glow-color);
-    --glow-color: #4efe1377; */
+    --glow-color: #4efe1377;
 }
-
-/* main>ol li {
-    font-family: 'texgyreadventor_regular', sans-serif;
-    color: #000;
-
-    font-size: clamp(0.8em, 2.6vmin, 1.2em);
-} */
-
-/* main>ol li:first-of-type,main>ol li:nth-of-type(3) {
-    background-color: transparent;
-    box-shadow: none;
-} */
-
-/* main>ol li:last-of-type {
-    display: none;
-
-    font-family: 'texgyreadventor_regular', sans-serif;
-    color: #000;
-
-    font-size: clamp(0.8em, 2.6vmin, 1.2em);
-} */
-
-
-/* main>ol li button {
-   border: none;
-   background-color: transparent;
-} */
-
-/* main>ol li button img {
-    width: clamp(1.2em, 5vw, 2em);
-    height: clamp(1.2em, 5vw, 2em);
-} */
-
-/* main>ol li:first-of-type button img {
-    transform: rotate(180deg);
-} */
-
 
 main>button {
     margin: var(--white-space);
@@ -286,7 +251,7 @@ main>button {
 
     font-family: 'texgyreadventor_bold', sans-serif;
     font-size: clamp(0.8em, 2.6vmin, 1.2em);
-    color: #3e3e3e;
+    color: #000;
 
     letter-spacing: .1em;
     text-transform: uppercase;
@@ -302,6 +267,9 @@ main>button {
     --glow-color: #dffe1377;
 
     z-index: 200;
+
+    cursor: pointer;
+
 }
 
 main>button:hover {
@@ -349,8 +317,8 @@ main>section {
 main>section>ol {
     display: grid;
     grid-auto-flow: column;
-    grid-template-columns: repeat(5, 1fr);
-    grid-template-rows: repeat(15, 1fr);
+    grid-template-columns: repeat(7.5, 1fr);
+    grid-template-rows: repeat(10, 1fr);
     gap: 0.2em;
 
     margin: 0em;
@@ -365,14 +333,18 @@ main>section>ol li {
     justify-content: center;
     align-items: center;
 
-    width: clamp(3em, 10vw, 4.5em);
-    height: clamp(3em, 10vw, 4.5em);
+    width: clamp(2em, 6vw, 3em);
+    height: clamp(2em, 6vw, 3em);
 
     font-size: clamp(0.8em, 2.6vmin, 1.2em);
+    font-family: 'texgyreadventor_regular', sans-serif;
+    color: #000;
 
-    border: 1px solid #000;
     border-radius: 50%;
-    background-color: #bc13fe;
+    background-color: var(--color-getrokken-bal);
+
+    box-shadow: var(--glow);
+    --glow-color: #bc13fe;
 }
 
 
@@ -476,6 +448,8 @@ main>section>ul li input {
     filter: drop-shadow(0em 0em .8em #bc13fe);
 
     z-index: 100;
+
+    cursor: pointer;
 }
 
 
@@ -547,6 +521,7 @@ main>section>ul .bingo-label {
     }
 
     main>button {
+        margin-top: 3em;
         order: 100;
         width: clamp(6em, 8vw, 7em);
         height: clamp(6em, 8vw, 7em);
@@ -584,8 +559,9 @@ main>section>ul .bingo-label {
 @media (prefers-color-scheme:dark) {
 
     :root {
-        --color-button: #c1dd0e;
-        --color-bal: #20b80c;
+        --color-button: #9db312;
+        --color-bal: #218613;
+        --color-getrokken-bal: #8218ab;
 
         --bingokaart-blauw: #1327fe;
         --bingokaart-geel: #dffe13;
@@ -614,9 +590,9 @@ main>section>ul .bingo-label {
         box-shadow: var(--dark-mode-box-shadow)
     }
 
-    /* main>ol li {
+    main>ol li {
         box-shadow: var(--dark-mode-box-shadow)
-    } */
+    }
 
     main section ul li label {
         color: white;
@@ -624,6 +600,11 @@ main>section>ul .bingo-label {
 
     .paarse-kaart label {
         color: #fff;
+    }
+
+    .thirteenth-item .bingo-label {
+        color: #dffe134d;
+        --glow-color: #dffe134d;
     }
 
 }

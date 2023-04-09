@@ -154,29 +154,82 @@ function ballenOverzicht() {
 buttonEl.addEventListener('click', ballenOverzicht);
 
 
+// SPEECH
+
+/* de commando's */
+// const commandos = ["bingo"]; /* deze lijst kun je uitbreiden */
+// const grammar =
+//   "#JSGF V1.0; grammar commandos; public <commando> = " +
+//   commandos.join(" | ") +
+//   " ;";
+
+// /* de browser de benodigde dingen leren */
+// var SpeechRecognition = SpeechRecognition || webkitSpeechRecognition;
+// var SpeechGrammarList = SpeechGrammarList || webkitSpeechGrammarList;
+// var SpeechRecognitionEvent =
+//   SpeechRecognitionEvent || webkitSpeechRecognitionEvent;
+
+// /* een lijstje maken van de grammer/commando's */
+// const speechRecognitionList = new SpeechGrammarList();
+// speechRecognitionList.addFromString(grammar, 1);
+
+// /* het luisterobject aanmaken en de commando's en de taal leren */
+// const recognition = new SpeechRecognition();
+// recognition.grammars = speechRecognitionList;
+// recognition.continuous = true;
+// recognition.lang = "nl";
+// recognition.interimResults = false;
+// recognition.maxAlternatives = 1;
+
+// /* als er tekst verstaan is */
+// function spraakAfhandelen(event) {
+//   // de laatste tekst uit de results peuteren
+//   const lijstMetAlleResultaten = event.results;
+//   const indexVanHetLaatsteResultaat = lijstMetAlleResultaten.length - 1;
+//   const hetLaatsteResultaat =
+//     lijstMetAlleResultaten[indexVanHetLaatsteResultaat];
+
+//   let deTekstDieVerstaanIs = hetLaatsteResultaat[0].transcript;
+
+//   deTekstDieVerstaanIs = deTekstDieVerstaanIs.trim();
+//   deTekstDieVerstaanIs = deTekstDieVerstaanIs.toLowerCase();
+
+//   if (deTekstDieVerstaanIs == "bingo") {
+//     h2El.innerHTML = "JA! BINGO! GEFELICITEERD! (als je niet hebt gecheat...)";
+//     // Roept confettie aan
+//   generateConfetti();
+//   // ^ Bron: https://github.com/mathieudutour/confetti.js
+//     document.body.classList.add("bingo");
+
+//     setTimeout(() => {
+//       location.reload();
+//     }, 20000);
+//   }
+
+//   console.log(deTekstDieVerstaanIs);
+// }
+
+// /* het luisterobject laten luisteren */
+// function luisteren() {
+//   recognition.start();
+//   console.log("Ready to receive a command.");
+// }
+
+// /* als er een woord herkent is - de functie starten */
+// recognition.onresult = (event) => {
+//   spraakAfhandelen(event);
+// };
+
+// /* als het luisterobject er onverhoopt mee ophoudt - opnieuw starten met luisteren */
+// recognition.onend = () => {
+//   luisteren();
+// };
+
+// /* na het laden van de pagina starten met luisteren */
+// luisteren();
+// ^ Bron: https://codepen.io/shooft/pen/yLxzgzP
 
 
-// Voegt een event listener toe voor het klikken op de button
-// buttonEl.addEventListener("click", function () {
-//   // Voegt de rotate-animation class toe
-//   // balNummer.classList.add("rotate-animation");
-//   h2El.innerHTML = "Is dit jouw nummer? Klik het aan op de bingokaart!";
-
-//   // Wacht tot de rotate-animatie is afgelopen
-//   // buttonEl.addEventListener("transitionend", function () {
-//     // Verwijder de rotate-animation class van de button
-//     // balNummer.classList.remove("rotate-animation");
-
-//     // Voeg de roll-in-animation class toe aan de bal
-//     balNummer.classList.add("roll-in-animation");
-
-//     // Wacht tot de roll-in-animatie is afgelopen
-//     // balNummer.addEventListener("animationend", function () {
-//     //   // Verwijder de roll-in-animation class van de bal
-//     //   balNummer.classList.remove("roll-in-animation");
-//     // });
-
-// });
 
 buttonEl.addEventListener("click", function(){
   if (balNummer.classList.contains("roll-in-animation")) {
