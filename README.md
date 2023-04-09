@@ -26,6 +26,7 @@ Nb. Door *open* toe te voegen aan een *details* element kun je deze standaard op
   10. https://github.com/mathieudutour/confetti.js
   11. https://codepen.io/shooft/pen/yLxzgzP
   12. https://developer.mozilla.org/en-US/docs/Web/API/Element/keydown_event
+  13. https://stock.adobe.com/uk/images/modern-futuristic-neon-lights-on-old-grunge-brick-wall-room-background-3d-rendering/269545518?
 
 
 

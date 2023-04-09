@@ -189,7 +189,9 @@ buttonEl.addEventListener("click", function(){
     }, 2000);
 
   } else {
-    h2El.innerHTML = "Is dit jouw nummer? Klik het aan op de bingokaart!";
     balNummer.classList.add("roll-in-animation");
+    setTimeout(() => {
+      h2El.innerHTML = "Is dit jouw nummer? Klik het aan op de bingokaart!";
+    }, 2000);
   }
 })

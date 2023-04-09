@@ -55,7 +55,6 @@ summary {
 
 :root {
     /* --dark-mode-color: #444; */
-    --background-color: #000;
     --dark-mode-box-shadow: 0 0em .25em white;
 
     --color-button: #dffe13;
@@ -94,7 +93,13 @@ body {
 
     color: white;
 
-    background-color: var(--background-color);
+    background-image: url("../images/backrgound_2.jpeg");
+    /* ^ Bron: https://stock.adobe.com/uk/images/modern-futuristic-neon-lights-on-old-grunge-brick-wall-room-background-3d-rendering/269545518? */
+    
+    background-size: cover;
+    background-position: center;
+
+    /* background-color: var(--background-color); */
 
     cursor: default;
 
@@ -121,11 +126,12 @@ body>section input {
     width: clamp(2em, 6vw, 3em);
     height: clamp(2em, 6vw, 3em);
 
+    background-color: #000;
+
     border-radius: 5px;
 }
 
 body>section input:checked {
-    background-color: transparent;
     border: 3px solid #fff;
 }
 
@@ -343,8 +349,8 @@ main>section {
 main>section>ol {
     display: grid;
     grid-auto-flow: column;
-    grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: repeat(25, 1fr);
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: repeat(15, 1fr);
     gap: 0.2em;
 
     margin: 0em;
@@ -355,7 +361,18 @@ main>section>ol {
 }
 
 main>section>ol li {
-    border: 1px solid #1327fe;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    width: clamp(3em, 10vw, 4.5em);
+    height: clamp(3em, 10vw, 4.5em);
+
+    font-size: clamp(0.8em, 2.6vmin, 1.2em);
+
+    border: 1px solid #000;
+    border-radius: 50%;
+    background-color: #bc13fe;
 }
 
 
@@ -403,6 +420,10 @@ main>section>ul {
 
     width: clamp(6em, 80vw, 30em);
     height: clamp(6em, 80vw, 30em);
+
+    background-color: #000;
+    border: none;
+    border-radius: 3%;
 }
 
 
@@ -563,8 +584,6 @@ main>section>ul .bingo-label {
 @media (prefers-color-scheme:dark) {
 
     :root {
-        --background-color: #181818;
-
         --color-button: #c1dd0e;
         --color-bal: #20b80c;
 
@@ -576,6 +595,11 @@ main>section>ul .bingo-label {
     * {
         --glow:
             0 0em 0.1em var(--glow-color);
+    }
+
+    body {
+        background-image: url("../images/backrgound_3.jpeg");
+        /* ^ Bron: https://stock.adobe.com/uk/images/modern-futuristic-neon-lights-on-old-grunge-brick-wall-room-background-3d-rendering/269545518? */
     }
 
     h1:hover {
