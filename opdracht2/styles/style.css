@@ -59,6 +59,7 @@ summary {
     --color-button: #dffe13;
     --color-bal: #2efe13;
     --color-getrokken-bal: #bc13fe;
+    --color-fiche: #ff69b4;
 
     --bingokaart-blauw: #1327fe4d;
     --bingokaart-geel: #dffe134d;
@@ -98,8 +99,6 @@ body {
     
     background-size: cover;
     background-position: center;
-
-    /* background-color: var(--background-color); */
 
     cursor: default;
 
@@ -198,51 +197,12 @@ main h2 {
 }
 
 
-main>ol {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-
-    gap: var(--white-space);
-
-    margin: 0;
-    padding: 0;
-}
-
-
 main li {
     list-style-type: none;
 }
 
 
-main>ol li {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
-    margin: var(--white-space);
-
-    width: clamp(3em, 10vw, 4.5em);
-    height: clamp(3em, 10vw, 4.5em);
-
-    transform:translateX(100vw);
-
-    font-family: 'texgyreadventor_bold', sans-serif;
-    color: #000;
-
-    font-size: clamp(0.8em, 2.6vmin, 1.2em);
-
-    border: none;
-    border-radius: 50%;
-
-    background-color: var(--color-bal);
-
-    box-shadow: 0 0em .3em white,
-        0 0em 7.5em var(--glow-color),
-        0 0em 8em var(--glow-color);
-    --glow-color: #4efe1377;
-}
-
+/* De button om een bal te trekken */
 main>button {
     margin: var(--white-space);
 
@@ -286,23 +246,48 @@ main button:active {
 }
 
 
-/* Animatie die de button na een klik laat draaien */
-@keyframes rotate {
-    0% {
-        transform: rotate(0);
-    }
+/* De bal die wordt getrokken */
+main>ol {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
 
-    100% {
-        transform: rotate(-360deg);
-    }
+    gap: var(--white-space);
+
+    margin: 0;
+    padding: 0;
 }
 
-main button.rotate-animation {
-    animation: rotate 0.6s ease-in-out both;
+main>ol li {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    margin: var(--white-space);
+
+    width: clamp(3em, 10vw, 4.5em);
+    height: clamp(3em, 10vw, 4.5em);
+
+    transform:translateX(100vw);
+
+    font-family: 'texgyreadventor_bold', sans-serif;
+    color: #000;
+
+    font-size: clamp(0.8em, 2.6vmin, 1.2em);
+
+    border: none;
+    border-radius: 50%;
+
+    background-color: var(--color-bal);
+
+    box-shadow: 0 0em .3em white,
+        0 0em 7.5em var(--glow-color),
+        0 0em 8em var(--glow-color);
+    --glow-color: #4efe1377;
 }
 
 
-/* getrokken ballen */
+/* De getrokken ballen */
 main>section {
     display: flex;
     flex-direction: row;
@@ -311,6 +296,7 @@ main>section {
 
     width: clamp(7em, 90vw, 40em);
     height: clamp(6em, 80vw, 30em);
+
     margin: 0;
 }
 
@@ -319,13 +305,14 @@ main>section>ol {
     grid-auto-flow: column;
     grid-template-columns: repeat(7.5, 1fr);
     grid-template-rows: repeat(10, 1fr);
+
     gap: 0.3em;
+
+    width: clamp(1em, 10vw, 3em);
+    height: 100%;
 
     margin: 0em;
     padding: 0em;
-
-    width: clamp(1em, 10vw, 3em);
-    height: 100%
 }
 
 main>section>ol li {
@@ -348,6 +335,7 @@ main>section>ol li {
 }
 
 
+/* Animatie die de bal laat inrollen */
 @keyframes rollIn {
     0% {
         transform: translateX(100vw) rotate(720deg);
@@ -363,6 +351,7 @@ main>ol li.roll-in-animation {
     animation: rollIn 2s ease-in-out forwards;
 }
 
+/* Animatie die de bal laat uitrollen */
 @keyframes rollOut {
     0% {
         transform: translateX(0) rotate(0deg);
@@ -379,7 +368,7 @@ main>ol li.roll-out-animation {
 }
 
 
-/* bingo kaart */
+/* De bingo kaart */
 main>section>ul {
     display: grid;
     grid-auto-flow: column;
@@ -398,23 +387,48 @@ main>section>ul {
     border-radius: 3%;
 }
 
-
 main>section>ul li {
     position: relative;
-
-    background-color: transparent;
 
     border-radius: 20%;
     box-shadow: var(--glow);
     --glow-color: var(--bingokaart-blauw);
 }
 
-.thirteenth-item {
-    background-color: transparent;
-    font-family: 'sacramento', sans-serif;
+main>section>ul li input {
+    position: relative;
 
+    margin: 0;
+    width: 100%;
+    height: 100%;
+
+    appearance: none;
+
+    filter: drop-shadow(0em 0em .8em #bc13fe);
+
+    z-index: 100;
+
+    cursor: pointer;
 }
 
+main>section>ul li label {
+    display: flex;
+    position: absolute;
+    justify-content: center;
+    align-items: center;
+
+    font-family: 'sacramento', sans-serif;
+    font-size: clamp(0.5em, 4vmin, 2em);
+    color: #bc13fe;
+
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+}
+
+
+/* Styling bingo kaart afhankelijk van de kleur kaart */
 main>section>ul.blauwe-kaart li {
     --glow-color: var(--bingokaart-blauw);
 }
@@ -436,23 +450,18 @@ main>section>ul.paarse-kaart label {
 }
 
 
-main>section>ul li input {
-    position: relative;
+/* Het middelste vakje */
+main>section>ul .bingo-label {
+    transform: rotate(-40deg);
 
-    margin: 0;
-    width: 100%;
-    height: 100%;
+    color: #dffe13;
 
-    appearance: none;
-
-    filter: drop-shadow(0em 0em .8em #bc13fe);
-
-    z-index: 100;
-
-    cursor: pointer;
+    text-shadow: var(--glow);
+    --glow-color: #dffe13;
 }
 
 
+/* Het fiche */
 main>section>ul li input::before {
     content: "";
     display: inline-block;
@@ -460,7 +469,7 @@ main>section>ul li input::before {
     width: 100%;
     height: 100%;
 
-    background-color: #ff69b4;
+    background-color: var(--color-fiche);
 
     opacity: 0;
 
@@ -470,40 +479,14 @@ main>section>ul li input::before {
     transition: 0.5s ease-in-out;
 }
 
-
 main>section>ul li input:checked::before {
     opacity: 0.6;
 }
 
 
-main>section>ul li label {
-    display: flex;
-    position: absolute;
-    justify-content: center;
-    align-items: center;
-
-    font-family: 'sacramento', sans-serif;
-    font-size: clamp(0.5em, 4vmin, 2em);
-    color: #bc13fe;
-
-    width: 100%;
-    height: 100%;
-    top: 0;
-    left: 0;
-}
-
-main>section>ul .bingo-label {
-    transform: rotate(-40deg);
-    color: #dffe13;
-    text-shadow: var(--glow);
-    --glow-color: #dffe13;
-
-}
-
-
 /* MEDIA QUERY */
 
-/* Past de stijl van de h1 aan op schermen kleiner dan 600 pixels breed. */
+/* Past de stijl aan op schermen kleiner dan 600 pixels breed. */
 @media only screen and (max-width: 600px) {
     body {
         flex-direction: column;
@@ -529,7 +512,7 @@ main>section>ul .bingo-label {
 }
 
 
-/* Confetti annimatie */
+/* Confetti annimatie als er "bingo" is geroepen */
 @keyframes confetti {
     0% {
         transform: translateY(0);
@@ -548,9 +531,7 @@ main>section>ul .bingo-label {
     background-color: #f0e;
     animation: confetti 5s ease-out infinite;
 }
-
 /* ^ Bron: https://github.com/mathieudutour/confetti.js */
-
 
 
 /* DARK MODE */
@@ -562,6 +543,7 @@ main>section>ul .bingo-label {
         --color-button: #9db312;
         --color-bal: #218613;
         --color-getrokken-bal: #8218ab;
+        --color-fiche: #f5a3cc91;
 
         --bingokaart-blauw: #1327fe;
         --bingokaart-geel: #dffe13;
@@ -593,13 +575,13 @@ main>section>ul .bingo-label {
     main>ol li {
         box-shadow: var(--dark-mode-box-shadow)
     }
-
+    
     main section ul li label {
         color: white;
     }
 
-    .paarse-kaart label {
-        color: #fff;
+    main>section>ul.paarse-kaart label {
+        color: #ffffff;
     }
 
     .thirteenth-item .bingo-label {

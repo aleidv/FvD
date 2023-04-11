@@ -13,6 +13,10 @@ const RadioInputEl1 = document.querySelector("section input:first-of-type");
 const RadioInputEl2 = document.querySelector("section input:nth-of-type(2)");
 const RadioInputEl3 = document.querySelector("section input:last-of-type");
 
+
+// ***************************************************************************
+
+
 // Voegt een event listener toe voor het klikken op de drie radiobuttons
 // Als de eerste radiobutton wordt geselecteerd worden alle elementen in de lijst "blauwe-kaart", tweede "gele-kaart" en derde "paarse-kaart"
 RadioInputEl1.addEventListener("click", function () {
@@ -33,9 +37,10 @@ RadioInputEl3.addEventListener("click", function () {
 
 // ***************************************************************************
 
+
 const totaalAantalNummers = 75;
 
-// Maakt een array met een lengte van "aantal nummers"
+// Maakt een array met een lengte van "totaal aantal nummers"
 // De waarden van elk nummer in de index wordt verhoogd met 1, dus is aantal nummers 1 tot en met 75
 const ballenGetallen = Array.from(
   Array(totaalAantalNummers),
@@ -51,7 +56,6 @@ function shuffle(array) {
     randomIndex;
 
   while (currentIndex != 0) {
-    // Pick a remaining element.
     randomIndex = Math.floor(Math.random() * currentIndex);
     currentIndex--;
 
@@ -65,13 +69,15 @@ function shuffle(array) {
 }
 //   ^ Bron: https://www.w3schools.com/js/js_arrays.asp
 
+
 // Maakt een const en roept de functie ^ aan en shuffeld de ballen
 const geshuffeldeBallen = shuffle(ballenGetallen);
 
+
 // Maakt een const en roept de functie ^ aan en shuffeld de geschuffelde ballen en neemt de eerste 25
-// ...
 const bingoKaartNummers = shuffle([...geshuffeldeBallen]).slice(0, 25);
 // ^ Bron: Babs Luidinga
+
 
 // Maakt een lijst aan met checkboxen voor de 25 kaart nummers, en maakt daarvoor een li aan voor in de ul
 // Deze code kan ik niet uitleggen
@@ -113,7 +119,10 @@ document.addEventListener("keydown", (event) => {
 // ^ Bron: https://developer.mozilla.org/en-US/docs/Web/API/Element/keydown_event
 
 
-// Confettie functie
+// ***************************************************************************
+
+
+// Deze code genereert confetti
 // Deze code kan ik niet uitleggen
 function generateConfetti() {
   for (let i = 0; i < 100; i++) {
@@ -129,6 +138,8 @@ function generateConfetti() {
 
 // ***************************************************************************
 
+
+// Maakt een function aan en genereert een nummer uit de geschudden nummers. Dit numner wordt laten zien in het list item/ de bal 
 function ballenOverzicht() {
     const volgendGetal = geshuffeldeBallen[huidigeIndex];
     let overzichtsItem = `
@@ -146,15 +157,24 @@ function ballenOverzicht() {
 
     huidigeIndex++;
   
+    // Deze code controleert of de gebruiker alle ballen heeft opgeroepen en als dat zo is, stopt het met luisteren naar de klik op de knop 
+    // Dit is om te voorkomen dat er meer ballen worden opgeroepen dan beschikbaar zijn
+    // Deze code kan ik niet uitleggen
     if (huidigeIndex === geshuffeldeBallen.length) {
       buttonEl.removeEventListener("click", rolNummer);
     }
+    // ^ Bron: Babs Luidinga
   }
 
+// ^ wordt aangeroepen wanneer op de button wordt geklikt
 buttonEl.addEventListener('click', ballenOverzicht);
 
 
-// SPEECH
+// ***************************************************************************
+
+
+// Spraak
+// Deze code kan ik niet uitleggen
 
 /* de commando's */
 const commandos = ["bingo"]; /* deze lijst kun je uitbreiden */
@@ -230,19 +250,29 @@ luisteren();
 // ^ Bron: https://codepen.io/shooft/pen/yLxzgzP
 
 
+// ***************************************************************************
 
+
+// Zodra er op de knop wordt geklikt wordt de functie (loopje) aangeroepen
 buttonEl.addEventListener("click", function(){
+  // controleerd of de bal de class .roll-in-animation heeft
   if (balNummer.classList.contains("roll-in-animation")) {
+      // zo ja, verwijderd deze
+      // zo nee, voegt de .roll-out class toe
       balNummer.classList.remove("roll-in-animation");
       balNummer.classList.add("roll-out-animation");
 
+    // Animaties worden vertraagd met 2 seconden
     setTimeout(() => {
       balNummer.classList.remove("roll-out-animation");
       balNummer.classList.add("roll-in-animation");
     }, 2000);
 
+    // als de bal geen .roll-in-animatie heeft wordt deze toegevoegd
   } else {
     balNummer.classList.add("roll-in-animation");
+
+    // Veranderd de tekst van de h2, na 2 seconden
     setTimeout(() => {
       h2El.innerHTML = "Is dit jouw nummer? Klik het aan op de bingokaart!";
     }, 2000);
