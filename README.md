@@ -115,28 +115,45 @@ Nb. Door *open* toe te voegen aan een *details* element kun je deze standaard op
 <details>
   <summary>uitwerken na testen (week 7)</summary>
 
-  Neem minimaal 5 bevindingen op:
-
-
 
   ### Bevinding 1:
   Omschrijving van wat er nog niet orde was (tekst en afbeeding(en)).
 
+> De gebruiker kon de getrokken bingo ballen niet terug vinden. Dit is niet heel erg gebruiksvriendelijk.
+
   #### oplossing:
   Beschrijving hoe je het hebt hebt opgelost of als het niet gelukt is hoe je het zou oplossen (tekst en afbeeding(en)).
 
+> Een lijst met getrokken bingo ballen gemaakt d.m.v. JS
+  <img src="readme-images/test_resultaat_1.png" width="375px" alt="uitomst opdracht 2">
 
 
   ### Bevinding 2:
   Omschrijving van wat er nog niet orde was (tekst en afbeeding(en)).
 
+  > De radiobutton options waren niet gebruiksvriendlijk omdat ze met de screenreader niet konden worden gelezen.
+
   #### oplossing:
   Beschrijving hoe je het hebt hebt opgelost of als het niet gelukt is hoe je het zou oplossen (tekst en afbeeding(en)).
 
+> Aria labels toegevoegd in de HTML
+  <img src="readme-images/test_resultaat_2.png" width="375px" alt="uitomst opdracht 2">
 
 
   ### Bevinding 3:
-  ...
+  Omschrijving van wat er nog niet orde was (tekst en afbeeding(en)).
+
+> De website was niet gebruiksvriendelijk omdat deze niet geheel responsive was.
+
+  #### oplossing:
+  Beschrijving hoe je het hebt hebt opgelost of als het niet gelukt is hoe je het zou oplossen (tekst en afbeeding(en)).
+
+> Responsive gemaakt door de variabelen:
+    --white-space: clamp(.5em, 3vmin, 2em);
+    en gebruik te maken van de @media only screen and (max-width: 600px)
+  <img src="readme-images/test_resultaat_4.png" width="375px" alt="uitomst opdracht 2">
+  <img src="readme-images/test_resultaat_3.png" width="375px" alt="uitomst opdracht 2">
+
 </details>
 
 
@@ -156,16 +173,16 @@ Nb. Door *open* toe te voegen aan een *details* element kun je deze standaard op
   > bingo kaart gemaakt
   > speach api
   > confetti
-  > button animatie
+  > lijst met getrokken bingo ballen
+  > rol in & out animaties
 
-  <img src="readme-images/bingo_gelukt_1.png" width="375px" alt="uitomst opdracht 2">
+  <img src="readme-images/bingo_gelukt_2.png" width="375px" alt="uitomst opdracht 2">
 
 
   ### Dit was lastig/Is niet gelukt:
   Korte omschrijving met plaatje(s)
 
-  > de eerste keer na klikken de bal doorzichtig maken
-  > fiche er op laten vallen
+  > 
 
   <img src="readme-images/bingo_niet_gelukt_1.png" width="375px" alt="uitomst opdracht 2">
   <img src="readme-images/bingo_niet_gelukt_2.png" width="375px" alt="uitomst opdracht 2">
