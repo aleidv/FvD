@@ -58,8 +58,8 @@ Nb. Door *open* toe te voegen aan een *details* element kun je deze standaard op
 
 
   ### Je uitkomst - karakteristiek screenshot(s):
-  <img src="readme-images/result_light_mode.png" width="375px" alt="uitomst opdracht 1">
-  <img src="readme-images/result_dark_mode.png" width="375px" alt="uitomst opdracht 1">
+  <img src="readme-images/light_mode_na_feedback.png" width="375px" alt="uitomst opdracht 1">
+  <img src="readme-images/dark_mode_na_feedback.png" width="375px" alt="uitomst opdracht 1">
 
 
   ### Dit ging goed/Heb ik geleerd: 
@@ -86,6 +86,9 @@ Nb. Door *open* toe te voegen aan een *details* element kun je deze standaard op
   > ik heb op meerdere manieren geprobeerd om een pulserende lijn als ::after neer te zetten.
   > o.a. door een background-image met een gradient, door een text decoration: underline wavy en transparante text en door het stijlen van een svg in de content maar geen een manier hiervan is mij gelukt.
   > ik heb geprobeerd audio te importeren dat pas afspeelt wanneer er over heen wordt gehoverd, dit is niet gelukt.
+
+  Na feedback:
+  > deze lijn veranderd in twee balletjes die op de beat omhoog en omlaag vallen.
 
 
 ## Opdracht 2 plan
@@ -182,9 +185,8 @@ Nb. Door *open* toe te voegen aan een *details* element kun je deze standaard op
   ### Dit was lastig/Is niet gelukt:
   Korte omschrijving met plaatje(s)
 
-  > 
+  > Het fiche met een animatie op het scherm laten vallen
 
-  <img src="readme-images/bingo_niet_gelukt_1.png" width="375px" alt="uitomst opdracht 2">
   <img src="readme-images/bingo_niet_gelukt_2.png" width="375px" alt="uitomst opdracht 2">
 
 </details>
