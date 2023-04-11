@@ -157,76 +157,76 @@ buttonEl.addEventListener('click', ballenOverzicht);
 // SPEECH
 
 /* de commando's */
-// const commandos = ["bingo"]; /* deze lijst kun je uitbreiden */
-// const grammar =
-//   "#JSGF V1.0; grammar commandos; public <commando> = " +
-//   commandos.join(" | ") +
-//   " ;";
+const commandos = ["bingo"]; /* deze lijst kun je uitbreiden */
+const grammar =
+  "#JSGF V1.0; grammar commandos; public <commando> = " +
+  commandos.join(" | ") +
+  " ;";
 
-// /* de browser de benodigde dingen leren */
-// var SpeechRecognition = SpeechRecognition || webkitSpeechRecognition;
-// var SpeechGrammarList = SpeechGrammarList || webkitSpeechGrammarList;
-// var SpeechRecognitionEvent =
-//   SpeechRecognitionEvent || webkitSpeechRecognitionEvent;
+/* de browser de benodigde dingen leren */
+var SpeechRecognition = SpeechRecognition || webkitSpeechRecognition;
+var SpeechGrammarList = SpeechGrammarList || webkitSpeechGrammarList;
+var SpeechRecognitionEvent =
+  SpeechRecognitionEvent || webkitSpeechRecognitionEvent;
 
-// /* een lijstje maken van de grammer/commando's */
-// const speechRecognitionList = new SpeechGrammarList();
-// speechRecognitionList.addFromString(grammar, 1);
+/* een lijstje maken van de grammer/commando's */
+const speechRecognitionList = new SpeechGrammarList();
+speechRecognitionList.addFromString(grammar, 1);
 
-// /* het luisterobject aanmaken en de commando's en de taal leren */
-// const recognition = new SpeechRecognition();
-// recognition.grammars = speechRecognitionList;
-// recognition.continuous = true;
-// recognition.lang = "nl";
-// recognition.interimResults = false;
-// recognition.maxAlternatives = 1;
+/* het luisterobject aanmaken en de commando's en de taal leren */
+const recognition = new SpeechRecognition();
+recognition.grammars = speechRecognitionList;
+recognition.continuous = true;
+recognition.lang = "nl";
+recognition.interimResults = false;
+recognition.maxAlternatives = 1;
 
-// /* als er tekst verstaan is */
-// function spraakAfhandelen(event) {
-//   // de laatste tekst uit de results peuteren
-//   const lijstMetAlleResultaten = event.results;
-//   const indexVanHetLaatsteResultaat = lijstMetAlleResultaten.length - 1;
-//   const hetLaatsteResultaat =
-//     lijstMetAlleResultaten[indexVanHetLaatsteResultaat];
+/* als er tekst verstaan is */
+function spraakAfhandelen(event) {
+  // de laatste tekst uit de results peuteren
+  const lijstMetAlleResultaten = event.results;
+  const indexVanHetLaatsteResultaat = lijstMetAlleResultaten.length - 1;
+  const hetLaatsteResultaat =
+    lijstMetAlleResultaten[indexVanHetLaatsteResultaat];
 
-//   let deTekstDieVerstaanIs = hetLaatsteResultaat[0].transcript;
+  let deTekstDieVerstaanIs = hetLaatsteResultaat[0].transcript;
 
-//   deTekstDieVerstaanIs = deTekstDieVerstaanIs.trim();
-//   deTekstDieVerstaanIs = deTekstDieVerstaanIs.toLowerCase();
+  deTekstDieVerstaanIs = deTekstDieVerstaanIs.trim();
+  deTekstDieVerstaanIs = deTekstDieVerstaanIs.toLowerCase();
 
-//   if (deTekstDieVerstaanIs == "bingo") {
-//     h2El.innerHTML = "JA! BINGO! GEFELICITEERD! (als je niet hebt gecheat...)";
-//     // Roept confettie aan
-//   generateConfetti();
-//   // ^ Bron: https://github.com/mathieudutour/confetti.js
-//     document.body.classList.add("bingo");
+  if (deTekstDieVerstaanIs == "bingo") {
+    h2El.innerHTML = "JA! BINGO! GEFELICITEERD! (als je niet hebt gecheat...)";
+    // Roept confettie aan
+  generateConfetti();
+  // ^ Bron: https://github.com/mathieudutour/confetti.js
+    document.body.classList.add("bingo");
 
-//     setTimeout(() => {
-//       location.reload();
-//     }, 20000);
-//   }
+    setTimeout(() => {
+      location.reload();
+    }, 20000);
+  }
 
-//   console.log(deTekstDieVerstaanIs);
-// }
+  console.log(deTekstDieVerstaanIs);
+}
 
-// /* het luisterobject laten luisteren */
-// function luisteren() {
-//   recognition.start();
-//   console.log("Ready to receive a command.");
-// }
+/* het luisterobject laten luisteren */
+function luisteren() {
+  recognition.start();
+  console.log("Ready to receive a command.");
+}
 
-// /* als er een woord herkent is - de functie starten */
-// recognition.onresult = (event) => {
-//   spraakAfhandelen(event);
-// };
+/* als er een woord herkent is - de functie starten */
+recognition.onresult = (event) => {
+  spraakAfhandelen(event);
+};
 
-// /* als het luisterobject er onverhoopt mee ophoudt - opnieuw starten met luisteren */
-// recognition.onend = () => {
-//   luisteren();
-// };
+/* als het luisterobject er onverhoopt mee ophoudt - opnieuw starten met luisteren */
+recognition.onend = () => {
+  luisteren();
+};
 
-// /* na het laden van de pagina starten met luisteren */
-// luisteren();
+/* na het laden van de pagina starten met luisteren */
+luisteren();
 // ^ Bron: https://codepen.io/shooft/pen/yLxzgzP
 
 
