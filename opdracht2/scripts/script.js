@@ -19,17 +19,19 @@ const RadioInputEl3 = document.querySelector("section input:last-of-type");
 
 // Voegt een event listener toe voor het klikken op de drie radiobuttons
 // Als de eerste radiobutton wordt geselecteerd worden alle elementen in de lijst "blauwe-kaart", tweede "gele-kaart" en derde "paarse-kaart"
-RadioInputEl1.addEventListener("click", function () {
+RadioInputEl1.addEventListener("change", function () {
   ulEl.classList.add("blauwe-kaart");
   ulEl.classList.remove("gele-kaart", "paarse-kaart");
 });
 
-RadioInputEl2.addEventListener("click", function () {
+RadioInputEl2.addEventListener("change", wordtGeel ());
+
+function wordtGeel() {
   ulEl.classList.add("gele-kaart");
   ulEl.classList.remove("blauwe-kaart", "paarse-kaart");
-});
+}
 
-RadioInputEl3.addEventListener("click", function () {
+RadioInputEl3.addEventListener("change", function () {
   ulEl.classList.add("paarse-kaart");
   ulEl.classList.remove("gele-kaart", "blauwe-kaart");
 });
@@ -112,6 +114,7 @@ document.addEventListener("keydown", (event) => {
     RadioInputEl1.checked = true;
   } else if (event.key === "2") {
     RadioInputEl2.checked = true;
+    wordtGeel();
   } else if (event.key === "3") {
     RadioInputEl3.checked = true;
   }
